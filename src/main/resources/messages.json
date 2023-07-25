@@ -1,0 +1,28 @@
+{
+  "_commit": "THIS FILE IS CURRENTLY NOT WORKING",
+  "color": "#fff",
+  "open": {
+    "create": {
+      "description": "",
+      "footer": "",
+      "icon": ""
+    },
+    "button-reply": {
+      "description": "",
+      "footer": "",
+      "icon": ""
+    },
+    "welcome": {
+      "description": "",
+      "footer": "",
+      "icon": ""
+    }
+  },
+  "close": {
+    "reply": {
+      "description": "",
+      "footer": "",
+      "icon": ""
+    }
+  }
+}

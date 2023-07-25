@@ -1,0 +1,171 @@
+package world.travelgeeks.database;
+
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.entities.channel.concrete.Category;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import world.travelgeeks.TicketBot;
+import world.travelgeeks.interfaces.adapter.GuildAdapter;
+
+import java.sql.*;
+
+public class GuildConnector implements GuildAdapter {
+    Logger logger = LoggerFactory.getLogger(TicketConnector.class);
+    Connection connection;
+
+    MySQL sql = TicketBot.getInstance().getSQL();
+
+    public GuildConnector(Connection connection) {
+        this.connection = connection;
+        try {
+            Statement statement = sql.getConnection().createStatement();
+            statement.executeUpdate(
+                    "CREATE TABLE IF NOT EXISTS " + "Guilds(" +
+                            "guildID BIGINT(22), " +
+                            "roleID BIGINT(22), " +
+                            "categoryID BIGINT(22)," +
+                            "ticketCount BIGINT(22))");
+            statement.close();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+            sql.disconnect();
+            sql.connect();
+            logger.debug("AUTO-FIX -> Reconnected to Database!");
+        }
+    }
+
+
+    @Override
+    public Role getRole(Guild guild) {
+        Role role = null;
+        try {
+            PreparedStatement statement = this.connection.prepareStatement("SELECT * FROM Guilds WHERE guildID='" + guild.getIdLong() + "'");
+            ResultSet resultSet = statement.executeQuery();
+            if (!resultSet.next() || resultSet.getLong("roleID") == 0) return role;
+            role = guild.getRoleById(resultSet.getLong("roleID"));
+            resultSet.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally {
+            return role;
+        }
+    }
+
+    @Override
+    public Category getCategory(Guild guild) {
+        Category category = null;
+        try {
+            PreparedStatement statement = this.connection.prepareStatement("SELECT * FROM Guilds WHERE guildID='" + guild.getIdLong() + "'");
+            ResultSet resultSet = statement.executeQuery();
+            if (!resultSet.next() || resultSet.getLong("categoryID") == 0) return category;
+            category = guild.getCategoryById(resultSet.getLong("categoryID"));
+            resultSet.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally {
+            return category;
+        }
+    }
+
+    @Override
+    public long getTicketCount(Guild guild) {
+        long ticketCount = 0;
+        try {
+            PreparedStatement statement = this.connection.prepareStatement("SELECT * FROM Guilds WHERE guildID='" + guild.getIdLong() + "'");
+            ResultSet resultSet = statement.executeQuery();
+            if (!resultSet.next() || resultSet.getLong("ticketCount") == 0) return ticketCount;
+            ticketCount = resultSet.getLong("ticketCount");
+            resultSet.close();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        } finally {
+            return ticketCount;
+        }
+    }
+
+    @Override
+    public void create(Guild guild) {
+        try {
+            PreparedStatement statement = this.connection.prepareStatement("insert into Guilds values(?,?,?,?)");
+            statement.setLong(1, guild.getIdLong());
+            statement.setLong(2, 0);
+            statement.setLong(3, 0);
+            statement.setLong(4, 0);
+            statement.executeUpdate();
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
+    }
+
+    @Override
+    public void delete(Guild guild) {
+        try {
+            Statement statement = this.connection.createStatement();
+            statement.executeUpdate("DELETE FROM Tickets WHERE guildID='" + guild.getIdLong() + "'");
+            statement.close();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+            sql.reconnect();
+            logger.debug("AUTO-FIX -> Reconnected to Database!");
+        }
+    }
+
+    @Override
+    public boolean exists(Guild guild) {
+        try {
+            PreparedStatement statement = this.connection.prepareStatement("SELECT * FROM Guilds WHERE guildID='" + guild.getIdLong() + "'");
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next())
+                return (resultSet.getLong("ticketCount") != -1);
+            resultSet.close();
+            return false;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public void setRole(Guild guild, Role role) {
+        try {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("UPDATE Guilds SET roleID='" + role.getIdLong() + "' WHERE guildID='" + guild.getIdLong() + "'");
+            statement.close();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+            logger.debug("AUTO-FIX -> Reconnected to Database!");
+        }
+    }
+
+    @Override
+    public void setCategory(Guild guild, Category category) {
+        try {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("UPDATE Guilds SET categoryID='" + category.getIdLong() + "' WHERE guildID='" + guild.getIdLong() + "'");
+            statement.close();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+            logger.debug("AUTO-FIX -> Reconnected to Database!");
+        }
+    }
+
+    @Override
+    public void setTicketCount(Guild guild, long l) {
+        try {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("UPDATE Guilds SET ticketCount='" + l + "' WHERE guildID='" + guild.getIdLong() + "'");
+            statement.close();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+            logger.debug("AUTO-FIX -> Reconnected to Database!");
+        }
+    }
+
+    @Override
+    public long addTicketCount(Guild guild) {
+        long count = this.getTicketCount(guild) + 1;
+        this.setTicketCount(guild, count);
+        return count;
+    }
+}

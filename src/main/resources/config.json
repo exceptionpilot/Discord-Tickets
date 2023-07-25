@@ -1,0 +1,7 @@
+{
+  "host": "localhost",
+  "table": "ticket",
+  "user": "admin",
+  "port": 3306,
+  "password": "kennwort123"
+}
