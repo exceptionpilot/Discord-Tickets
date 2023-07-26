@@ -4,9 +4,13 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
+import net.dv8tion.jda.api.exceptions.ErrorHandler;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.managers.channel.concrete.TextChannelManager;
+import net.dv8tion.jda.api.requests.ErrorResponse;
 import net.dv8tion.jda.api.requests.restaction.ChannelAction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import world.travelgeeks.TicketBot;
 import world.travelgeeks.database.manager.GuildManagement;
 import world.travelgeeks.database.manager.TicketManagement;
@@ -18,11 +22,11 @@ import java.util.List;
 
 public class TicketWrapper {
 
+    Logger logger = LoggerFactory.getLogger(TicketWrapper.class);
     String apiUrl = "https://api.travelgeeks.world/ticket/"; // own api coming soon...
     TicketManagement ticketManagement = TicketBot.getInstance().getTicketManagement();
     GuildManagement guildManagement = TicketBot.getInstance().getGuildManagement();
     EnumSet<Permission> permissions = EnumSet.of(Permission.VIEW_CHANNEL, Permission.MESSAGE_SEND, Permission.MESSAGE_HISTORY);
-
 
 
     public TicketWrapper() {
@@ -32,7 +36,7 @@ public class TicketWrapper {
     public TextChannel open(Guild guild, Member member) {
 
         ChannelAction<TextChannel> channelChannelAction = guild.createTextChannel("ticket-" + guildManagement.addTicketCount(guild));
-        channelChannelAction.addRolePermissionOverride(guild.getPublicRole().getIdLong(),null , permissions);
+        channelChannelAction.addRolePermissionOverride(guild.getPublicRole().getIdLong(), null, permissions);
         channelChannelAction.addMemberPermissionOverride(member.getIdLong(), permissions, null);
         channelChannelAction.addRolePermissionOverride(guildManagement.getRole(guild).getIdLong(), permissions, null);
         channelChannelAction.setParent(guildManagement.getCategory(guild));
@@ -56,13 +60,9 @@ public class TicketWrapper {
 
     public TicketWrapper close(TextChannel channel) {
         Member member = ticketManagement.getMember(channel.getGuild(), channel);
-        System.out.println(member);
-
-        String link = transcript(channel);
-        System.out.println("Link: " + link);
+        sendPrivateMessage(member.getUser(), "Your ticket has been closed.", transcript(channel));
         ticketManagement.delete(channel.getGuild(), (Member) member);
         channel.delete().queue();
-        sendPrivateMessage(member.getUser(), "Transcript: " + link);
         return this;
     }
 
@@ -86,6 +86,7 @@ public class TicketWrapper {
         // TODO: Make async handel
         return channel.getManager().setTopic(topic);
     }
+
     public String transcript(TextChannel channel) {
         WebBuilder webBuilder = new WebBuilder(channel.getGuild().getName(), channel.getGuild(), channel);
         MessageHistory history = MessageHistory.getHistoryFromBeginning(channel).complete();
@@ -97,22 +98,12 @@ public class TicketWrapper {
         return apiUrl + channel.getGuild().getIdLong() + "/" + channel.getIdLong();
     }
 
-    public void sendPrivateMessage(User user, String content) {
-        try {
-
-        user.openPrivateChannel()
-                .flatMap(channel -> channel.sendMessage(content))
-                .queue();
-
-        }catch (Exception exception) {
-            // TODO: Catch action
-        }
-    }
-
-    public void sendWelcome(TextChannel ticketChannel, Member member) {
-        EmbedBuilder embedBuilder = new EmbedBuilder();
-        embedBuilder.setDescription("Support will be with you shortly. Click the button underneath this message to close the ticket.").setColor(Color.decode("#D0F7F4"));
-        embedBuilder.setFooter(ticketChannel.getGuild().getName(), ticketChannel.getGuild().getIconUrl());
-        ticketChannel.sendMessage("G'day " + member.getAsMention() + "!").addEmbeds(embedBuilder.build()).addActionRow(Button.danger("close_ticket", "Close")).queue();
+    public TicketWrapper sendPrivateMessage(User user, String content, String url) {
+        user.openPrivateChannel().flatMap(
+                channel -> channel.sendMessage(content).addActionRow(Button.link(url, "Transcript")))
+                .queue(null, new ErrorHandler()
+                        .handle(ErrorResponse.CANNOT_SEND_TO_USER,
+                                (exception) -> logger.info("Cannot send message to user")));
+        return this;
     }
 }

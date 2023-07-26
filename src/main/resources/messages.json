@@ -1,6 +1,15 @@
 {
   "_commit": "THIS FILE IS CURRENTLY NOT WORKING",
   "color": "#fff",
+
+  "error": {
+    "permission": ":x: You do not have permissions to do this.",
+    "private": ":x: This command is only proposed for Guilds!",
+    "category": ":x: Your arguments must provide a category!",
+    "already-in-ticket": ":x: You are already in a ticket: %channel%",
+    "not-in-ticket": ":x: You must be in a ticket to execute this command."
+  },
+
   "open": {
     "create": {
       "description": "",

@@ -43,4 +43,5 @@ public class GuildJoinLeaveListener extends ListenerAdapter {
             ticketWrapper.close(ticketManagement.getChannel(event.getGuild(), event.getMember()));
         }
     }
+
 }
