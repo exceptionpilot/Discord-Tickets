@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
+import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -87,6 +88,7 @@ public class TicketBot {
         builder.enableIntents(GatewayIntent.GUILD_MESSAGES);
         builder.setAutoReconnect(true);
         builder.disableCache(CacheFlag.ACTIVITY);
+        builder.setMemberCachePolicy(MemberCachePolicy.ALL); // Hotfix
         builder.setMaxReconnectDelay(32);
         builder.addEventListeners(new ConfigCommand());
         builder.addEventListeners(new ButtonInteractionListener());

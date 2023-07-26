@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef65c842-b490-4575-801a-f2a28598eb69" name="Changes" comment="Push">
+    <list default="true" id="ef65c842-b490-4575-801a-f2a28598eb69" name="Changes" comment="Hotfix TicketConnector#getMember()">
       <change afterPath="$PROJECT_DIR$/src/main/resources/TODO" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1133503459551871087/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1133536396364230736/index.html" afterDir="false" />
@@ -25,11 +25,6 @@
       <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1133554520710987796/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/transcripts/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/database/TicketConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/database/TicketConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/TicketWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/TicketWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/config/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/config/Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690318102450</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Hotfix TicketConnector#getMember() (Not fully fixxed)">
+      <option name="closed" value="true" />
+      <created>1690333159763</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1690333159763</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,6 +142,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Push" />
-    <option name="LAST_COMMIT_MESSAGE" value="Push" />
+    <MESSAGE value="Hotfix TicketConnector#getMember() (Not fully fixxed)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hotfix TicketConnector#getMember() (Not fully fixxed)" />
   </component>
 </project>
