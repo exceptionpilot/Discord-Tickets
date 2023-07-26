@@ -18,4 +18,6 @@
 2. Ticket close log channel
 3. vieles mehr
 
+Test the Bot at https://discord.gg/V6KB4kQnKc
+
 Leave a ⭐️ if you like this project!
