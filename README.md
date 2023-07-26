@@ -13,4 +13,9 @@
 9. Installieren Sie apache auf Ihrem Server.
 10. Um Transcripts problemlos anzuzeigen folgen sie diesem Guide: https://gist.github.com/masudcsesust04/9e6e2b598e5eeab80dd80f2b5f54c1f1
 
+### ➜ ToDo's
+1. Eine messages.json um Nachrichten anzupassen. (evtl mehrsprachige Funktionen)
+2. Ticket close log channel
+3. vieles mehr
+
 Leave a ⭐️ if you like this project!
