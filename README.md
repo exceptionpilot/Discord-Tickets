@@ -1,6 +1,6 @@
 ![logo](https://cdn.discordapp.com/attachments/1133772375368941628/1133773227458564116/772EBBB6-E091-4D95-964F-45A8652A0E5E.png)
 ## Java-Ticket-Bot
-
+***
 
 ### ➜ Configure
 1. Verbinden Sie sich über den SFTP-Client mit Ihrem Server.
