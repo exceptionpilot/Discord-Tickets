@@ -66,10 +66,11 @@ public class TicketConnector implements TicketAdapter {
     public Member getMember(Guild guild, TextChannel channel) {
         Member member = null;
         try {
-            PreparedStatement select = this.connection.prepareStatement("SELECT * FROM Tickets WHERE guildID='" + guild.getIdLong() + "' AND channelID='" + channel.getIdLong() + "'");
-            ResultSet resultSet = select.executeQuery();
-            if (!resultSet.next() || resultSet.getLong("memberID") == 0) return guild.getMemberById(resultSet.getLong("memberID"));
+            Statement select = this.connection.createStatement();
+            ResultSet resultSet = select.executeQuery("SELECT * FROM Tickets WHERE guildID='" + guild.getIdLong() + "' AND channelID='" + channel.getIdLong() + "'");
+            if (!resultSet.next() || resultSet.getLong("memberID") == 0)  return null;
             member = guild.getMemberById(resultSet.getLong("memberID"));
+            System.out.println(member);
             resultSet.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -84,7 +85,7 @@ public class TicketConnector implements TicketAdapter {
         try {
             PreparedStatement select = this.connection.prepareStatement("SELECT * FROM Tickets WHERE guildID='" + guild.getIdLong() + "' AND memberID='" + member.getIdLong() + "'");
             ResultSet resultSet = select.executeQuery();
-            if (!resultSet.next() || resultSet.getLong("channelID") == 0) return channel;
+            if (!resultSet.next() || resultSet.getLong("channelID") == 0) return null;
             channel = guild.getTextChannelById(resultSet.getLong("channelID"));
             resultSet.close();
         } catch (SQLException ex) {

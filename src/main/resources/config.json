@@ -1,4 +1,5 @@
 {
+  "api": "yourapi.de",
   "host": "localhost",
   "table": "ticket",
   "user": "admin",

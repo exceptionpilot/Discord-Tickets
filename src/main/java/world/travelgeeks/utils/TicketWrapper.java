@@ -2,10 +2,7 @@ package world.travelgeeks.utils;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.MessageHistory;
+import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.managers.channel.concrete.TextChannelManager;
@@ -29,7 +26,7 @@ public class TicketWrapper {
 
 
     public TicketWrapper() {
-
+        this.apiUrl = TicketBot.getInstance().getConfiguration().getApiLink();
     }
 
     public TextChannel open(Guild guild, Member member) {
@@ -58,9 +55,14 @@ public class TicketWrapper {
     }
 
     public TicketWrapper close(TextChannel channel) {
-        transcript(channel);
-        ticketManagement.delete(channel.getGuild(), ticketManagement.getMember(channel.getGuild(), channel));
+        Member member = ticketManagement.getMember(channel.getGuild(), channel);
+        System.out.println(member);
+
+        String link = transcript(channel);
+        System.out.println("Link: " + link);
+        ticketManagement.delete(channel.getGuild(), (Member) member);
         channel.delete().queue();
+        sendPrivateMessage(member.getUser(), "Transcript: " + link);
         return this;
     }
 
@@ -93,6 +95,18 @@ public class TicketWrapper {
         }
         webBuilder.build();
         return apiUrl + channel.getGuild().getIdLong() + "/" + channel.getIdLong();
+    }
+
+    public void sendPrivateMessage(User user, String content) {
+        try {
+
+        user.openPrivateChannel()
+                .flatMap(channel -> channel.sendMessage(content))
+                .queue();
+
+        }catch (Exception exception) {
+            // TODO: Catch action
+        }
     }
 
     public void sendWelcome(TextChannel ticketChannel, Member member) {

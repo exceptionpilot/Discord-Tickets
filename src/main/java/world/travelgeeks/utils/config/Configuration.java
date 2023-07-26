@@ -8,6 +8,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Configuration {
+
+    String apiLink;
     String host;
     String table;
     String user;
@@ -17,11 +19,16 @@ public class Configuration {
     JSONParser parser = new JSONParser();
 
     public Configuration() {
+        this.apiLink = (String) parse("api");
         this.host = (String) parse("host");
         this.user = (String) parse("user");
         this.table = (String) parse("table");
         this.password = (String) parse("password");
         this.port = (long) parse("port");
+    }
+
+    public String getApiLink() {
+        return apiLink;
     }
 
     public String getHost() {
