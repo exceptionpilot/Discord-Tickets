@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import world.travelgeeks.TicketBot;
 import world.travelgeeks.database.manager.GuildManagement;
 import world.travelgeeks.database.manager.TicketManagement;
@@ -36,6 +37,7 @@ public class ButtonInteractionListener extends ListenerAdapter {
 
             case "close_ticket":
                 if (management.isTicket(event.getGuild(), event.getChannel().asTextChannel())) {
+                    event.deferReply().queue();
                     ticketWrapper.close(event.getChannel().asTextChannel());
                 } else {
                     event.replyEmbeds(new EmbedBuilder().setDescription("You are not in a Ticket!").build()).queue();
@@ -54,6 +56,7 @@ public class ButtonInteractionListener extends ListenerAdapter {
                 builder.setDescription("Your ticket will be progressed by " + event.getMember().getAsMention());
                 builder.setColor(Color.decode("#D0F7F4"));
                 event.replyEmbeds(builder.build()).queue();
+                event.editButton(Button.secondary("claim_ticket", "Claim").asDisabled()).queue();
 
                 break;
             case "transcript_ticket":

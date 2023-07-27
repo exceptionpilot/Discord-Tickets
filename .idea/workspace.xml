@@ -4,27 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef65c842-b490-4575-801a-f2a28598eb69" name="Changes" comment="Hotfix TicketConnector#getMember()">
+    <list default="true" id="ef65c842-b490-4575-801a-f2a28598eb69" name="Changes" comment="Private Message Error Handel">
       <change afterPath="$PROJECT_DIR$/src/main/resources/TODO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1133503459551871087/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1133536396364230736/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1133537550796075121/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1133540660385947698/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1133548609187618897/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1133550870466924574/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1133560260653760533/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1133561962463232060/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1133541540900380822/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1133541609259143300/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1133543357830930472/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1133543646843650178/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1133547136936595586/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1133551150940037190/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1133553559296823326/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1133553741333798922/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1133554520710987796/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1133772375368941628/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1133820229697413193/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/transcripts/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/TicketBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/TicketBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/listeners/ButtonInteractionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/listeners/ButtonInteractionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/config/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/config/Message.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +32,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-20.0.1/Contents/Home/lib/src.zip!/java.base/java/lang/System.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2SA3xkLfrbqrRUPAOxt3XeuM1RV" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -125,7 +116,23 @@
       <option name="project" value="LOCAL" />
       <updated>1690333159763</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Modified Member caching">
+      <option name="closed" value="true" />
+      <created>1690364965935</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1690364965935</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Private Message Error Handel">
+      <option name="closed" value="true" />
+      <created>1690371084876</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1690371084876</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -133,7 +140,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="basti/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -143,6 +162,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Push" />
     <MESSAGE value="Hotfix TicketConnector#getMember() (Not fully fixxed)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hotfix TicketConnector#getMember() (Not fully fixxed)" />
+    <MESSAGE value="Modified Member caching" />
+    <MESSAGE value="Private Message Error Handel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Private Message Error Handel" />
   </component>
 </project>

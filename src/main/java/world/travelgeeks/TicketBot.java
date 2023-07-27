@@ -26,10 +26,8 @@ import world.travelgeeks.utils.FileExporter;
 import world.travelgeeks.utils.config.Message;
 
 import javax.security.auth.login.LoginException;
-import java.awt.*;
 import java.io.IOException;
 import java.sql.Connection;
-import java.util.SplittableRandom;
 
 public class TicketBot {
 
@@ -64,7 +62,7 @@ public class TicketBot {
         INSTANCE = this;
 
         this.configuration = new Configuration();
-        this.messages = new Message(Color.decode("#D0F7F4"));
+        this.messages = new Message();
 
         this.sql = new MySQL();
         this.ticketConnector = new TicketConnector((Connection) this.sql.getConnection());
