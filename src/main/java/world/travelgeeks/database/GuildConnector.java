@@ -2,7 +2,9 @@ package world.travelgeeks.database;
 
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.entities.channel.Channel;
 import net.dv8tion.jda.api.entities.channel.concrete.Category;
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import world.travelgeeks.TicketBot;
@@ -66,6 +68,11 @@ public class GuildConnector implements GuildAdapter {
         }finally {
             return category;
         }
+    }
+
+    @Override
+    public Channel getLogChannel(Guild guild) {
+        return null;
     }
 
     @Override
@@ -148,6 +155,11 @@ public class GuildConnector implements GuildAdapter {
             exception.printStackTrace();
             logger.debug("AUTO-FIX -> Reconnected to Database!");
         }
+    }
+
+    @Override
+    public void setLogChannel(Guild guild, TextChannel channel) {
+
     }
 
     @Override
