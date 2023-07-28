@@ -1,14 +1,18 @@
 package world.travelgeeks.transcript;
 
+import net.dv8tion.jda.api.entities.MessageEmbed;
+
+import java.util.List;
+
 public class TranscriptMessage {
 
     private final String author;
     private final String iconUrl;
     private final String message;
-    private final String embed;
+    private final List<MessageEmbed> embed;
     private final boolean isBot;
 
-    public TranscriptMessage(String author, String iconUrl, String message, String embed, boolean isBot) {
+    public TranscriptMessage(String author, String iconUrl, String message, List<MessageEmbed> embed, boolean isBot) {
         this.author = author;
         this.iconUrl = iconUrl;
         this.message = message;
@@ -28,7 +32,7 @@ public class TranscriptMessage {
         return message;
     }
 
-    public String getEmbed() {
+    public List<MessageEmbed> getEmbed() {
         return embed;
     }
 

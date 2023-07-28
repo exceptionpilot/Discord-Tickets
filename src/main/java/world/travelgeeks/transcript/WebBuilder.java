@@ -2,6 +2,7 @@ package world.travelgeeks.transcript;
 
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 
 import java.io.BufferedWriter;
@@ -32,7 +33,7 @@ public class WebBuilder {
                         message.getAuthor().getName(),
                         message.getAuthor().getAvatarUrl(),
                         message.getContentDisplay(),
-                        message.getEmbeds().get(0).getDescription(),
+                        message.getEmbeds(),
                         message.getAuthor().isBot()));
         return this;
     }
@@ -62,9 +63,9 @@ public class WebBuilder {
                     .append("</div>")
                     .append("<div class=\"content\">" + message.getMessage() + "</div>\n")
                     .append("</div>");
-            if (message.getEmbed() !=null) {
+            for (MessageEmbed embed : message.getEmbed()) {
                 builder.append("<div class=\"embed\">\n" +
-                        "            <div class=\"embed-description\">" + message.getEmbed() + "</div>\n" +
+                        "            <div class=\"embed-description\">" + embed.getDescription() + "</div>\n" +
                         "        </div>");
             }
 
