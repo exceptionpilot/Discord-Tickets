@@ -39,9 +39,7 @@ public class ButtonInteractionListener extends ListenerAdapter {
                 if (management.isTicket(event.getGuild(), event.getChannel().asTextChannel())) {
                     event.deferReply().queue();
                     ticketWrapper.close(event.getChannel().asTextChannel());
-                } else {
-                    event.replyEmbeds(new EmbedBuilder().setDescription("You are not in a Ticket!").build()).queue();
-                }
+                } else event.deferReply(true).setContent(":x: You are not in a ticket!").queue();
                 break;
             case "claim_ticket":
 

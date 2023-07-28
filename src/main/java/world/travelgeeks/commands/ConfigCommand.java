@@ -51,7 +51,7 @@ public class ConfigCommand extends ListenerAdapter implements ICommand {
         }
 
         if (event.getOption("category").getAsChannel().asCategory() ==null) {
-            event.reply(":x: Your arguments must provide a category!").queue();
+            Category category = event.getChannel().asTextChannel().getParentCategory();
             return;
         }
 

@@ -3,7 +3,7 @@ body {
     background-color: #36393f;
     margin: 0;
     padding: 0;
-    color: #fff; /* Set default text color */
+    color: #fff;
     transition: background-color 0.3s ease;
     position: relative;
 }
@@ -73,6 +73,17 @@ body {
     padding: 10px;
 }
 
+.embed {
+    background-color: #7289da;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.embed-description {
+    color: #fff;
+}
 
 .dark-mode {
     background-color: #f0f0f0;
@@ -88,4 +99,6 @@ body {
     color: #333;
 }
 
-
+.dark-mode .embed {
+    background-color: #0f47d3;
+}

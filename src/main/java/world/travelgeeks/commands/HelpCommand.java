@@ -21,6 +21,7 @@ public class HelpCommand implements ICommand {
         builder.setDescription("**Commands:**\n" +
                 "- ticket open|close|add\n" +
                 "- setup");
+
         builder.setColor(Color.decode("#D0F7F4"));
         event.replyEmbeds(builder.build()).setEphemeral(true).queue();
     }

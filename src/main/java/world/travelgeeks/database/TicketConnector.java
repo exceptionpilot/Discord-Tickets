@@ -31,7 +31,7 @@ public class TicketConnector implements TicketAdapter {
             exception.printStackTrace();
             sql.disconnect();
             sql.connect();
-            logger.debug("AUTO-FIX -> Reconnected to Database!");
+            logger.debug("Reconnected to Database!");
         }
     }
 

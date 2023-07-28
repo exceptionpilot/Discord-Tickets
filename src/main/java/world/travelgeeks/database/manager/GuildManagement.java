@@ -2,7 +2,9 @@ package world.travelgeeks.database.manager;
 
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.entities.channel.Channel;
 import net.dv8tion.jda.api.entities.channel.concrete.Category;
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import world.travelgeeks.interfaces.adapter.GuildAdapter;
 
 public class GuildManagement implements GuildAdapter {
@@ -22,6 +24,11 @@ public class GuildManagement implements GuildAdapter {
     @Override
     public Category getCategory(Guild guild) {
         return this.guildAdapter.getCategory(guild);
+    }
+
+    @Override
+    public Channel getLogChannel(Guild guild) {
+        return this.guildAdapter.getLogChannel(guild);
     }
 
     @Override
@@ -52,6 +59,11 @@ public class GuildManagement implements GuildAdapter {
     @Override
     public void setCategory(Guild guild, Category category) {
         this.guildAdapter.setCategory(guild, category);
+    }
+
+    @Override
+    public void setLogChannel(Guild guild, TextChannel channel) {
+        this.guildAdapter.setLogChannel(guild, channel);
     }
 
     @Override

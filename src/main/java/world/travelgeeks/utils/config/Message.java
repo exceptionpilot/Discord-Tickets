@@ -9,15 +9,29 @@ import java.io.IOException;
 
 public class Message {
 
+    String lang;
     String permission;
+    String onlyGuild;
+    String category;
     JSONParser parser = new JSONParser();
 
     public Message() {
-        this.permission = (String) parse("permission");
+        this.permission = (String) parse("$.error.permission");
+        this.onlyGuild = (String) parse("$.error.private");
+        this.category = (String) parse("$.error.category");
+
     }
 
     public String getPermission() {
         return permission;
+    }
+
+    public String getOnlyGuild() {
+        return onlyGuild;
+    }
+
+    public String getCategory() {
+        return category;
     }
 
     private Object parse(String path) {

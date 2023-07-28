@@ -1,11 +1,14 @@
 package world.travelgeeks.listeners;
 
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.guild.GuildJoinEvent;
 import net.dv8tion.jda.api.events.guild.GuildLeaveEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberRemoveEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import world.travelgeeks.TicketBot;
 import world.travelgeeks.database.manager.GuildManagement;
 import world.travelgeeks.database.manager.TicketManagement;
@@ -13,6 +16,7 @@ import world.travelgeeks.utils.TicketWrapper;
 
 public class GuildJoinLeaveListener extends ListenerAdapter {
 
+    Logger logger = LoggerFactory.getLogger(GuildJoinLeaveListener.class);
     TicketWrapper ticketWrapper = TicketBot.getInstance().getTicketWrapper();
     TicketManagement ticketManagement = TicketBot.getInstance().getTicketManagement();
     GuildManagement management = TicketBot.getInstance().getGuildManagement();
@@ -20,6 +24,7 @@ public class GuildJoinLeaveListener extends ListenerAdapter {
     @Override
     public void onGuildJoin(GuildJoinEvent event) {
         management.create(event.getGuild());
+        logger.info("Joined new Community: " + event.getGuild().getName());
     }
 
     @Override
@@ -30,17 +35,22 @@ public class GuildJoinLeaveListener extends ListenerAdapter {
                 management.create(guild);
 
         }
+
     }
+
 
     @Override
     public void onGuildLeave(GuildLeaveEvent event) {
         management.delete(event.getGuild());
+        logger.info("Left Community: " + event.getGuild().getName());
     }
 
     @Override
     public void onGuildMemberRemove(GuildMemberRemoveEvent event) {
-        if (ticketManagement.hasTicket(event.getGuild(), event.getMember())) {
-            ticketWrapper.close(ticketManagement.getChannel(event.getGuild(), event.getMember()));
+        Member member = event.getMember();
+        Guild guild = event.getGuild();
+        if (ticketManagement.hasTicket(guild, member)) {
+            ticketWrapper.close(ticketManagement.getChannel(guild, member));
         }
     }
 

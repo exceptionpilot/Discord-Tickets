@@ -32,6 +32,7 @@ public class WebBuilder {
                         message.getAuthor().getName(),
                         message.getAuthor().getAvatarUrl(),
                         message.getContentDisplay(),
+                        message.getEmbeds().get(0).getDescription(),
                         message.getAuthor().isBot()));
         return this;
     }
@@ -61,6 +62,11 @@ public class WebBuilder {
                     .append("</div>")
                     .append("<div class=\"content\">" + message.getMessage() + "</div>\n")
                     .append("</div>");
+            if (message.getEmbed() !=null) {
+                builder.append("<div class=\"embed\">\n" +
+                        "            <div class=\"embed-description\">" + message.getEmbed() + "</div>\n" +
+                        "        </div>");
+            }
 
         }
         builder.append("<script>\n" +

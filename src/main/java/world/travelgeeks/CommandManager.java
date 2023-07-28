@@ -27,27 +27,29 @@ public class CommandManager extends ListenerAdapter {
         commandsMap.put("config", new ConfigCommand());
         commandsMap.put("help", new HelpCommand());
         commandsMap.put("topic", new TopicCommand());
+        commandsMap.put("open", new OpenCommand());
         commandsMap.put("close", new CloseCommand());
         commandsMap.put("add", new AddCommand());
         commandsMap.put("remove", new RemoveCommand());
         commandsMap.put("claim", new ClaimCommand());
-
-
 
         CommandListUpdateAction commands = jda.updateCommands();
 
         commands.addCommands(Commands.slash("help", "Get the help page for the " + jda.getSelfUser().getName() + "!"));
         commands.addCommands(Commands.slash("ticket", "Handle your tickets!"));
         commands.addCommands(Commands.slash("claim", "Claim ticket!"));
+        commands.addCommands(Commands.slash("open", "Open a new Ticket!")
+                .addOptions(new OptionData(OptionType.USER, "member", "Choose a member!")));
         commands.addCommands(Commands.slash("close", "Close the ticket!"));
-        commands.addCommands(Commands.slash("add", "Manage your Ticket").addOptions(new OptionData(OptionType.USER, "member", "Choose a member!", true)));
-        commands.addCommands(Commands.slash("remove", "Manage your Ticket").addOptions(new OptionData(OptionType.USER, "member", "Choose a member!", true)));
+        commands.addCommands(Commands.slash("add", "Manage your Ticket")
+                .addOptions(new OptionData(OptionType.USER, "member", "Choose a member!", true)));
+        commands.addCommands(Commands.slash("remove", "Manage your Ticket")
+                .addOptions(new OptionData(OptionType.USER, "member", "Choose a member!", true)));
         commands.addCommands(Commands.slash("config", "Only use this command for first setup or reset!")
                 .addOptions(new OptionData(OptionType.ROLE, "role", "Choose a your moderation role!", true))
                 .addOptions(new OptionData(OptionType.CHANNEL, "category", "Choose a category for your tickets.", true)));
         commands.addCommands(Commands.slash("topic", "Change the ticket topic")
-                .addOptions(new OptionData(OptionType.STRING, "topic", "Change the ticket topic", true))
-        );
+                .addOptions(new OptionData(OptionType.STRING, "topic", "Change the ticket topic", true)));
 
         commands.queue();
     }

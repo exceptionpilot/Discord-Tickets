@@ -3,6 +3,8 @@ package world.travelgeeks.utils.config;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -17,6 +19,7 @@ public class Configuration {
     long port;
 
     JSONParser parser = new JSONParser();
+    Logger logger = LoggerFactory.getLogger(Configuration.class);
 
     public Configuration() {
         this.apiLink = (String) parse("api");
@@ -54,6 +57,7 @@ public class Configuration {
     private Object parse(String path) {
         try (FileReader reader = new FileReader("config.json")) {
             JSONObject object = (JSONObject) parser.parse(reader);
+            logger.debug("Parsing JSON: " + path);
             return object.get(path);
         } catch (IOException | ParseException exception) {
             throw new RuntimeException(exception);

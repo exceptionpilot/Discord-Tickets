@@ -18,9 +18,7 @@ public class MySQL {
 
         if (configuration.getHost() !=null) {
             connect();
-        }else{
-            logger.info("MYSQL_SERVER is currently disabled! -> Check Config");
-        }
+        } else logger.info("Host is null");
     }
 
     public void connect() {
@@ -48,31 +46,6 @@ public class MySQL {
     public void reconnect() {
         disconnect();
         connect();
-    }
-
-    public void update(String query) {
-        try {
-            Statement statement = connection.createStatement();
-            statement.executeUpdate(query);
-            statement.close();
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-            disconnect();
-            connect();
-            logger.debug("AUTO-FIX -> Reconnected to Database!");
-        }
-    }
-
-    private ResultSet query(String query) {
-        ResultSet result = null;
-        try {
-            Statement st = connection.createStatement();
-            result = st.executeQuery(query);
-        } catch (SQLException exception) {
-            connect();
-            throw new RuntimeException(exception);
-        }
-        return result;
     }
 
     public Connection getConnection() {
