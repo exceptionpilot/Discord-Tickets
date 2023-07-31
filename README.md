@@ -14,6 +14,7 @@
 10. Um Transcripts problemlos anzuzeigen folgen sie diesem Guide: https://gist.github.com/masudcsesust04/9e6e2b598e5eeab80dd80f2b5f54c1f1
 
 ***
+Preview: http://193.187.255.169/1013213427843485817/1135155682920890439/
 
 ### ➜ ToDo's
 1. Eine messages.json um Nachrichten anzupassen. (evtl mehrsprachige Funktionen)
