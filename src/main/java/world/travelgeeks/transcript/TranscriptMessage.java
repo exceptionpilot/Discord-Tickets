@@ -32,7 +32,7 @@ public class TranscriptMessage {
         return message;
     }
 
-    public List<MessageEmbed> getEmbed() {
+    public List<MessageEmbed> getEmbeds() {
         return embed;
     }
 

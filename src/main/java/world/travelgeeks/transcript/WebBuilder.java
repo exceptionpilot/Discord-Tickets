@@ -63,7 +63,7 @@ public class WebBuilder {
                     .append("</div>")
                     .append("<div class=\"content\">" + message.getMessage() + "</div>\n")
                     .append("</div>");
-            for (MessageEmbed embed : message.getEmbed()) {
+            for (MessageEmbed embed : message.getEmbeds()) {
                 builder.append("<div class=\"embed\">\n" +
                         "            <div class=\"embed-description\">" + embed.getDescription() + "</div>\n" +
                         "        </div>");

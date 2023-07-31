@@ -4,7 +4,9 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.managers.channel.concrete.TextChannelManager;
 import world.travelgeeks.TicketBot;
 import world.travelgeeks.database.manager.GuildManagement;
 import world.travelgeeks.database.manager.TicketManagement;
@@ -39,6 +41,7 @@ public class AddCommand implements ICommand {
         }
 
         Member target = event.getOption("member").getAsMember();
+        ticketWrapper.add(event.getChannel().asTextChannel(), member);
         ticketWrapper.add(event.getChannel().asTextChannel(), target);
         EmbedBuilder builder = new EmbedBuilder();
         builder.setDescription("The user " + target.getAsMention() + " was added to the ticket.");

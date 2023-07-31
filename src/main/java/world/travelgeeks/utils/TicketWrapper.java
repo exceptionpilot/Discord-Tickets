@@ -26,7 +26,7 @@ public class TicketWrapper {
     String apiUrl = "https://api.travelgeeks.world/ticket/"; // own api coming soon...
     TicketManagement ticketManagement = TicketBot.getInstance().getTicketManagement();
     GuildManagement guildManagement = TicketBot.getInstance().getGuildManagement();
-    EnumSet<Permission> permissions = EnumSet.of(Permission.VIEW_CHANNEL, Permission.MESSAGE_SEND, Permission.MESSAGE_HISTORY);
+    private EnumSet<Permission> permissions = EnumSet.of(Permission.VIEW_CHANNEL, Permission.MESSAGE_SEND, Permission.MESSAGE_HISTORY);
 
 
     public TicketWrapper() {
@@ -85,6 +85,10 @@ public class TicketWrapper {
     public TextChannelManager setTopic(TextChannel channel, String topic) {
         // TODO: Make async handel
         return channel.getManager().setTopic(topic);
+    }
+
+    public EnumSet<Permission> getPermissions() {
+        return this.permissions;
     }
 
     public String transcript(TextChannel channel) {

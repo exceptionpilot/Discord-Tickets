@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef65c842-b490-4575-801a-f2a28598eb69" name="Changes" comment="New Functions /open and updated handels">
-      <change afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/OpenCommand.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/TODO" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1133772375368941628/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1133820229697413193/index.html" afterDir="false" />
@@ -13,8 +12,10 @@
       <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1134561107760124086/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/transcripts/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/AddCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/transcript/TranscriptMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/transcript/TranscriptMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/transcript/WebBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/transcript/WebBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/TicketWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/TicketWrapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690570054536</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="New Functions /open and updated handels">
+      <option name="closed" value="true" />
+      <created>1690571904492</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1690571904492</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

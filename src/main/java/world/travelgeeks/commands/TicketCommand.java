@@ -4,8 +4,6 @@ import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import world.travelgeeks.interfaces.ICommand;
 
-import java.awt.*;
-
 public class TicketCommand implements ICommand {
 
 
