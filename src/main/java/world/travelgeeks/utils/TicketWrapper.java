@@ -77,8 +77,10 @@ public class TicketWrapper {
     }
 
     public TicketWrapper claim(TextChannel channel, Member member) {
-        channel.getManager().putMemberPermissionOverride(member.getIdLong(), permissions, null).queue();
-        channel.getManager().putRolePermissionOverride(guildManagement.getRole(channel.getGuild()).getIdLong(), null, permissions).queue();
+        TextChannelManager textChannelManager = channel.getManager();
+        textChannelManager.putRolePermissionOverride(guildManagement.getRole(channel.getGuild()).getIdLong(), null, permissions);
+        textChannelManager.putMemberPermissionOverride(member.getIdLong(), permissions, null);
+        textChannelManager.queue();
         return this;
     }
 
