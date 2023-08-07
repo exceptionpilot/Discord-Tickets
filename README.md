@@ -42,4 +42,5 @@ Preview: http://193.187.255.169/1013213427843485817/1135155682920890439/
     * Version: `8.0.33`
     * [GitHub](https://github.com/mysql/mysql-connector-j)
 
+
 Leave a ⭐️ if you like this project!
