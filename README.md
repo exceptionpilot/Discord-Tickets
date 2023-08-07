@@ -27,19 +27,51 @@ A Ticket bot has been thoughtfully crafted for Discord using the JDA (Java Disco
 ## Transcript:
 Before installing apache2 for the web, update and upgrade your packages.
 ```ssh
-sudo apt update && sudo apt upgrade -y
+$ sudo apt update && sudo apt upgrade -y
 ```
 Install apache2 via SSH.
 ```ssh
-sudo apt install apache2
+$ sudo apt install apache2
 ```
 > This is only the basic setup, for more security check out the [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04) Wiki.
+Open apache2 configuration file in the nano Editor.
+```ssh
+# Input
+$ sudo nano /etc/apache2/apache2.conf
 
+# Output
+<Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+</Directory>
+```
+Change output to:
+```ssh
+<Directory /path/to/transcript/>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+        Allow from all
+</Directory>
+```
+Open the default virtual host configuration file from the path.
+```ssh
+# Input
+$ sudo nano /etc/apache2/sites-available/000-default.conf
 
-10. Um Transcripts problemlos anzuzeigen folgen sie diesem Guide: https://gist.github.com/masudcsesust04/9e6e2b598e5eeab80dd80f2b5f54c1f1
-
-***
-Preview: http://193.187.255.169/1013213427843485817/1135155682920890439/
+# Output
+DocumentRoot /var/www/html
+```
+Change output to:
+```ssh
+DocumentRoot /path/to/transcript/
+```
+Finally, restart apache2.
+```ssh
+$ sudo service apache2 restart
+```
+Well done😄 Enjoy!
 
 ## ToDo's:
 1. Eine messages.json um Nachrichten anzupassen. (evtl mehrsprachige Funktionen)
