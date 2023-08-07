@@ -36,10 +36,10 @@ $ sudo apt install apache2
 > This is only the basic setup, for more security check out the [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04) Wiki.
 Open apache2 configuration file in the nano Editor.
 ```ssh
-# Input
+## Input
 $ sudo nano /etc/apache2/apache2.conf
 
-# Output
+## Output
 <Directory /var/www/>
         Options Indexes FollowSymLinks
         AllowOverride None
@@ -57,10 +57,10 @@ Change output to:
 ```
 Open the default virtual host configuration file from the path.
 ```ssh
-# Input
+## Input
 $ sudo nano /etc/apache2/sites-available/000-default.conf
 
-# Output
+## Output
 DocumentRoot /var/www/html
 ```
 Change output to:
