@@ -1,3 +1,11 @@
+/*
+    ____  _  v.1.1                   __   _______      __        __
+   / __ \(_)_____________  _________/ /  /_  __(_)____/ /_____  / /______
+  / / / / / ___/ ___/ __ \/ ___/ __  /    / / / / ___/ //_/ _ \/ __/ ___/
+ / /_/ / (__  ) /__/ /_/ / /  / /_/ /    / / / / /__/ ,< /  __/ /_(__  )
+/_____/_/____/\___/\____/_/   \__,_/    /_/ /_/\___/_/|_|\___/\__/____/
+ */
+
 package world.travelgeeks;
 
 import io.github.cdimascio.dotenv.Dotenv;
@@ -12,11 +20,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import world.travelgeeks.commands.ConfigCommand;
 import world.travelgeeks.database.GuildConnector;
+import world.travelgeeks.database.LoggingConnector;
 import world.travelgeeks.database.MySQL;
 import world.travelgeeks.database.TicketConnector;
 import world.travelgeeks.database.manager.GuildManagement;
+import world.travelgeeks.database.manager.LoggingManagement;
 import world.travelgeeks.database.manager.TicketManagement;
 import world.travelgeeks.interfaces.adapter.GuildAdapter;
+import world.travelgeeks.interfaces.adapter.LoggingAdapter;
 import world.travelgeeks.interfaces.adapter.TicketAdapter;
 import world.travelgeeks.listeners.ButtonInteractionListener;
 import world.travelgeeks.listeners.GuildJoinLeaveListener;
@@ -40,6 +51,8 @@ public class TicketBot {
     private TicketManagement ticketManagement;
     private GuildConnector guildConnector;
     private GuildManagement guildManagement;
+    private LoggingConnector loggingConnector;
+    private LoggingManagement loggingManagement;
     private TicketWrapper ticketWrapper;
 
     private static TicketBot INSTANCE;
@@ -69,6 +82,8 @@ public class TicketBot {
         this.ticketManagement = new TicketManagement((TicketAdapter) this.ticketConnector);
         this.guildConnector = new GuildConnector((Connection) this.sql.getConnection());
         this.guildManagement = new GuildManagement((GuildAdapter) this.guildConnector);
+        this.loggingConnector = new LoggingConnector((Connection) this.sql.getConnection());
+        this.loggingManagement = new LoggingManagement((LoggingAdapter) this.loggingConnector);
 
         this.ticketWrapper = new TicketWrapper();
 
@@ -114,6 +129,10 @@ public class TicketBot {
 
     public GuildManagement getGuildManagement() {
         return guildManagement;
+    }
+
+    public LoggingManagement getLoggingManagement() {
+        return loggingManagement;
     }
 
     public TicketWrapper getTicketWrapper() {

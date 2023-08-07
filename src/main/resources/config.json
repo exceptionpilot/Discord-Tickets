@@ -1,8 +1,8 @@
 {
-  "api": "yourapi.de",
+  "api": "https://yourapi.de/",
   "host": "localhost",
   "table": "ticket",
-  "user": "admin",
+  "user": "root",
   "port": 3306,
-  "password": "kennwort123"
+  "password": "pa$$word"
 }

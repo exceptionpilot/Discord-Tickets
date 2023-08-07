@@ -11,17 +11,8 @@ public class HelpCommand implements ICommand {
 
     @Override
     public void execute(SlashCommandInteractionEvent event, User user) {
-
-        if (!event.isFromGuild()) {
-            event.reply(":x: This command is only proposed for Guilds!").queue();
-            return;
-        }
-
         EmbedBuilder builder = new EmbedBuilder();
-        builder.setDescription("**Commands:**\n" +
-                "- ticket open|close|add\n" +
-                "- setup");
-
+        builder.setDescription("This project is [Open-Source](https://github.com/DevChewbacca/Java-Ticket-Bot#commands)!");
         builder.setColor(Color.decode("#D0F7F4"));
         event.replyEmbeds(builder.build()).setEphemeral(true).queue();
     }

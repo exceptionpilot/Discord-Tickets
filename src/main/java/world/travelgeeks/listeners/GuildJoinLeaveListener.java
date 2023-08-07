@@ -2,6 +2,7 @@ package world.travelgeeks.listeners;
 
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.guild.GuildJoinEvent;
 import net.dv8tion.jda.api.events.guild.GuildLeaveEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberRemoveEvent;
@@ -33,7 +34,6 @@ public class GuildJoinLeaveListener extends ListenerAdapter {
         for (Guild guild : event.getJDA().getGuilds()) {
             if (!management.exists(guild))
                 management.create(guild);
-
         }
 
     }
@@ -47,11 +47,14 @@ public class GuildJoinLeaveListener extends ListenerAdapter {
 
     @Override
     public void onGuildMemberRemove(GuildMemberRemoveEvent event) {
-        Member member = event.getMember();
-        Guild guild = event.getGuild();
-        if (ticketManagement.hasTicket(guild, member)) {
-            ticketWrapper.close(ticketManagement.getChannel(guild, member));
-        }
+        // TODO: Ticket closing change from Member to User.
+
+        //long userID = event.getUser().getIdLong();
+        //long guildID = event.getGuild().getIdLong();
+        //Guild guild = event.getGuild();
+        //if (!ticketManagement.hasTicket(guild, event.getMember())) {
+        //    ticketWrapper.close(ticketManagement.getChannel(guild, event.getMember().getGuild().getMemberById(userID)));
+        // }
     }
 
 }

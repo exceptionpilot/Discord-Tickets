@@ -10,7 +10,7 @@ public interface GuildAdapter {
 
     Role getRole(Guild guild);
     Category getCategory(Guild guild);
-    Channel getLogChannel(Guild guild);
+    TextChannel getLogChannel(Guild guild);
     long getTicketCount(Guild guild);
 
     void create(Guild guild);

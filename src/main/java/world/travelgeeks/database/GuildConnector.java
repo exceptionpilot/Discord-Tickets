@@ -2,7 +2,6 @@ package world.travelgeeks.database;
 
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.entities.channel.Channel;
 import net.dv8tion.jda.api.entities.channel.concrete.Category;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import org.slf4j.Logger;
@@ -13,7 +12,7 @@ import world.travelgeeks.interfaces.adapter.GuildAdapter;
 import java.sql.*;
 
 public class GuildConnector implements GuildAdapter {
-    Logger logger = LoggerFactory.getLogger(TicketConnector.class);
+    Logger logger = LoggerFactory.getLogger(this.getClass());
     Connection connection;
 
     MySQL sql = TicketBot.getInstance().getSQL();
@@ -21,18 +20,18 @@ public class GuildConnector implements GuildAdapter {
     public GuildConnector(Connection connection) {
         this.connection = connection;
         try {
-            Statement statement = sql.getConnection().createStatement();
+            Statement statement = connection.createStatement();
             statement.executeUpdate(
                     "CREATE TABLE IF NOT EXISTS " + "Guilds(" +
                             "guildID BIGINT(22), " +
                             "roleID BIGINT(22), " +
+                            "logChannelID BIGINT(22)," +
                             "categoryID BIGINT(22)," +
                             "ticketCount BIGINT(22))");
             statement.close();
         } catch (SQLException exception) {
             exception.printStackTrace();
-            sql.disconnect();
-            sql.connect();
+            sql.reconnect();
             logger.debug("AUTO-FIX -> Reconnected to Database!");
         }
     }
@@ -71,8 +70,19 @@ public class GuildConnector implements GuildAdapter {
     }
 
     @Override
-    public Channel getLogChannel(Guild guild) {
-        return null;
+    public TextChannel getLogChannel(Guild guild) {
+        TextChannel channel = null;
+        try {
+            PreparedStatement statement = this.connection.prepareStatement("SELECT * FROM Guilds WHERE guildID='" + guild.getIdLong() + "'");
+            ResultSet resultSet = statement.executeQuery();
+            if (!resultSet.next() || resultSet.getLong("logChannelID") == 0) return channel;
+            channel = guild.getTextChannelById(resultSet.getLong("logChannelID"));
+            resultSet.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally {
+            return channel;
+        }
     }
 
     @Override
@@ -94,11 +104,12 @@ public class GuildConnector implements GuildAdapter {
     @Override
     public void create(Guild guild) {
         try {
-            PreparedStatement statement = this.connection.prepareStatement("insert into Guilds values(?,?,?,?)");
+            PreparedStatement statement = this.connection.prepareStatement("insert into Guilds values(?,?,?,?,?)");
             statement.setLong(1, guild.getIdLong());
             statement.setLong(2, 0);
             statement.setLong(3, 0);
             statement.setLong(4, 0);
+            statement.setLong(5, 0);
             statement.executeUpdate();
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
@@ -159,7 +170,14 @@ public class GuildConnector implements GuildAdapter {
 
     @Override
     public void setLogChannel(Guild guild, TextChannel channel) {
-
+        try {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("UPDATE Guilds SET logChannelID='" + channel.getIdLong() + "' WHERE guildID='" + guild.getIdLong() + "'");
+            statement.close();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+            logger.debug("AUTO-FIX -> Reconnected to Database!");
+        }
     }
 
     @Override

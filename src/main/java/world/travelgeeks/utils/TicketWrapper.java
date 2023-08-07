@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.exceptions.ErrorHandler;
+import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.managers.channel.concrete.TextChannelManager;
 import net.dv8tion.jda.api.requests.ErrorResponse;
@@ -13,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import world.travelgeeks.TicketBot;
 import world.travelgeeks.database.manager.GuildManagement;
+import world.travelgeeks.database.manager.LoggingManagement;
 import world.travelgeeks.database.manager.TicketManagement;
 import world.travelgeeks.transcript.WebBuilder;
 
@@ -26,6 +28,7 @@ public class TicketWrapper {
     String apiUrl = "https://api.travelgeeks.world/ticket/"; // own api coming soon...
     TicketManagement ticketManagement = TicketBot.getInstance().getTicketManagement();
     GuildManagement guildManagement = TicketBot.getInstance().getGuildManagement();
+    LoggingManagement loggingManagement = TicketBot.getInstance().getLoggingManagement();
     private EnumSet<Permission> permissions = EnumSet.of(Permission.VIEW_CHANNEL, Permission.MESSAGE_SEND, Permission.MESSAGE_HISTORY);
 
 
@@ -53,15 +56,34 @@ public class TicketWrapper {
                         Button.danger("close_ticket", "Close"),
                         Button.secondary("claim_ticket", "Claim")
                 )
-                .queue();
+                .queue(ctx -> {
+                    Role role = guildManagement.getRole(guild);
+                    EmbedBuilder builder = new EmbedBuilder();
+                    builder.setDescription("Member " + member.getEffectiveName() + " created a new ticket: " + channel.getAsMention());
+                    builder.setColor(Color.decode("#D0F7F4"));
+                    guildManagement.getLogChannel(guild).sendMessage(role.getAsMention()).addEmbeds(builder.build()).queue(
+                            (message) -> loggingManagement.create(guild, member, message));
+                });
 
         return channel;
     }
 
     public TicketWrapper close(TextChannel channel) {
         Member member = ticketManagement.getMember(channel.getGuild(), channel);
-        sendPrivateMessage(member.getUser(), "Your ticket has been closed.", transcript(channel));
+        String url = transcript(channel);
+
+        Message message = loggingManagement.getMessage(channel.getGuild(), member);
+        EmbedBuilder builder = new EmbedBuilder();
+        builder.setDescription("This ticket has already been **closed**.");
+        builder.addField("User:", member.getEffectiveName(), true);
+        builder.addField("Ticket:", channel.getName(), true);
+        builder.setColor(Color.decode("#D0F7F4"));
+        message.editMessageEmbeds(builder.build()).setActionRow(Button.link(url, "Transcript")).queue();
+
+        this.sendPrivateMessage(member.getUser(), "Your ticket has been closed.", url);
+
         ticketManagement.delete(channel.getGuild(), (Member) member);
+        loggingManagement.delete(channel.getGuild(), member);
         channel.delete().queue();
         return this;
     }
@@ -81,6 +103,14 @@ public class TicketWrapper {
         textChannelManager.putRolePermissionOverride(guildManagement.getRole(channel.getGuild()).getIdLong(), null, permissions);
         textChannelManager.putMemberPermissionOverride(member.getIdLong(), permissions, null);
         textChannelManager.queue();
+
+        Message message = loggingManagement.getMessage(channel.getGuild(), member);
+        EmbedBuilder builder = new EmbedBuilder();
+        builder.setDescription("This ticket is already in progress.");
+        builder.addField("Claim:", member.getEffectiveName(), true);
+        builder.setColor(Color.decode("#D0F7F4"));
+        message.editMessageEmbeds(builder.build()).queue();
+
         return this;
     }
 

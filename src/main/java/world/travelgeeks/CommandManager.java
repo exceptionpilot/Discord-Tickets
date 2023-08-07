@@ -36,7 +36,6 @@ public class CommandManager extends ListenerAdapter {
         CommandListUpdateAction commands = jda.updateCommands();
 
         commands.addCommands(Commands.slash("help", "Get the help page for the " + jda.getSelfUser().getName() + "!"));
-        commands.addCommands(Commands.slash("ticket", "Handle your tickets!"));
         commands.addCommands(Commands.slash("claim", "Claim ticket!"));
         commands.addCommands(Commands.slash("open", "Open a new Ticket!")
                 .addOptions(new OptionData(OptionType.USER, "member", "Choose a member!")));
@@ -47,7 +46,8 @@ public class CommandManager extends ListenerAdapter {
                 .addOptions(new OptionData(OptionType.USER, "member", "Choose a member!", true)));
         commands.addCommands(Commands.slash("config", "Only use this command for first setup or reset!")
                 .addOptions(new OptionData(OptionType.ROLE, "role", "Choose a your moderation role!", true))
-                .addOptions(new OptionData(OptionType.CHANNEL, "category", "Choose a category for your tickets.", true)));
+                .addOptions(new OptionData(OptionType.CHANNEL, "channel", "Select a channel for logging!", true))
+                .addOptions(new OptionData(OptionType.CHANNEL, "category", "Choose a category for your tickets.")));
         commands.addCommands(Commands.slash("topic", "Change the ticket topic")
                 .addOptions(new OptionData(OptionType.STRING, "topic", "Change the ticket topic", true)));
 

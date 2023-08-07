@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.entities.channel.concrete.Category;
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
@@ -50,14 +51,20 @@ public class ConfigCommand extends ListenerAdapter implements ICommand {
             return;
         }
 
-        if (event.getOption("category").getAsChannel().asCategory() ==null) {
-            Category category = event.getChannel().asTextChannel().getParentCategory();
-            return;
-        }
+        Category category;
+        if (event.getOption("category") == null) {
+            category = event.getChannel().asTextChannel().getParentCategory();
+        }else category = event.getOption("category").getAsChannel().asCategory();
+
+        TextChannel channel;
+        if (event.getOption("channel") ==null) {
+            channel = event.getChannel().asTextChannel();
+        }else channel = event.getOption("channel").getAsChannel().asTextChannel();
 
         Role role = event.getOption("role").getAsRole();
-        Category category = event.getOption("category").getAsChannel().asCategory();
+
         management.setCategory(event.getGuild(), category);
+        management.setLogChannel(event.getGuild(), channel);
         management.setRole(event.getGuild(), role);
 
         event.replyEmbeds(success(event.getGuild()).build()).setEphemeral(true).queue(ctx -> {

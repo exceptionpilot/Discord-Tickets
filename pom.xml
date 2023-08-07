@@ -6,7 +6,7 @@
 
     <groupId>world.travelgeeks</groupId>
     <artifactId>TicketBot</artifactId>
-    <version>1.0</version>
+    <version>beta-1.1</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -44,12 +44,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.9.0</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
@@ -67,6 +61,7 @@
             <version>8.0.33</version>
         </dependency>
 
+        <!-- Unused dependency (not in readme.md) -->
         <dependency>
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
@@ -91,7 +86,7 @@
                 <configuration>
                     <transformers>
                         <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                            <mainClass>world.travelgeeks.TicketBot</mainClass> <!-- :) You have to replace this with a path to your main class like my.path.Main -->
+                            <mainClass>world.travelgeeks.TicketBot</mainClass>
                         </transformer>
                     </transformers>
                     <createDependencyReducedPom>false</createDependencyReducedPom>
