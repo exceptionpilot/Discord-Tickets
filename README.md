@@ -7,8 +7,10 @@ Introducing our meticulously crafted Ticket bot for Discord, powered by the JDA 
 ## Summary:
 1. [Getting started](#getting-started)
 2. [Transcript Guide](#transcript-guide)
-3. [Tasks](#tasks)
-4. [Dependencies](#dependencies)
+3. [Commands](#commands)
+4. [Screenshots](#screenshots)
+5. [Tasks](#tasks)
+6. [Dependencies](#dependencies)
 
 ## Getting started:
 * Connect to your server using the SFTP client.
@@ -74,6 +76,17 @@ Finally, restart apache2.
 $ sudo service apache2 restart
 ```
 Well done😄 Enjoy!
+
+## Commands:
+Command       | Description
+------------- | -------------
+/config       | Change Guild configurations
+/open         | Open a Ticket via Command
+/close        | Close a Ticket via Command
+/add          | Add a Member to a current ticket
+/remove       | Remove a Member from a current ticket
+/claim        | Show that you are progressing with this ticket
+/topic        | Change the ticket Topic
 
 ## Screenshots:
 <details> <summary>Create a new Ticket for you or others.</summary>
