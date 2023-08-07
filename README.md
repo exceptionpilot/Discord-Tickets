@@ -5,7 +5,7 @@ A Ticket bot has been thoughtfully crafted for Discord using the JDA (Java Disco
 
 
 ## Navigation:
-1. [Getting started](#gettingstarted)
+1. [Getting started](#getting-started)
 2. [Dependencies](#dependencies)
 
 ## Getting started:
@@ -22,8 +22,20 @@ A Ticket bot has been thoughtfully crafted for Discord using the JDA (Java Disco
   * Checkout the [Discord Developer Portal](https://discord.com/developers/docs/getting-started) 
 * Use the command `nano config.json` to open the config.json file and set up your MySQL and Domain/IP for the Transcript API.
 
+> This setup does not include the Transcript-Web function but will still work as well.
 
-9. Installieren Sie apache auf Ihrem Server.
+## Transcript:
+Before installing apache2 for the web, update and upgrade your packages.
+```ssh
+sudo apt update && sudo apt upgrade -y
+```
+Install apache2 via SSH.
+```ssh
+sudo apt install apache2
+```
+> This is only the basic setup, for more security check out the [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04) Wiki.
+
+
 10. Um Transcripts problemlos anzuzeigen folgen sie diesem Guide: https://gist.github.com/masudcsesust04/9e6e2b598e5eeab80dd80f2b5f54c1f1
 
 ***
