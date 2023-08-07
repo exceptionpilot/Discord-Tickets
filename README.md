@@ -4,9 +4,11 @@
 A Ticket bot has been thoughtfully crafted for Discord using the JDA (Java Discord API). This delightful bot offers a range of features, including the ability to view previous transcripts on the web.
 
 
-## Navigation:
+## Summary:
 1. [Getting started](#getting-started)
-2. [Dependencies](#dependencies)
+2. [Transcript Guide](#transcript-guide)
+3. [Tasks](#tasks)
+4. [Dependencies](#dependencies)
 
 ## Getting started:
 * Connect to your server using the SFTP client.
@@ -24,7 +26,7 @@ A Ticket bot has been thoughtfully crafted for Discord using the JDA (Java Disco
 
 > This setup does not include the Transcript-Web function but will still work as well.
 
-## Transcript:
+## Transcript Guide:
 Before installing apache2 for the web, update and upgrade your packages.
 ```ssh
 $ sudo apt update && sudo apt upgrade -y
