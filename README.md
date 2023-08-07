@@ -73,10 +73,10 @@ $ sudo service apache2 restart
 ```
 Well done😄 Enjoy!
 
-## ToDo's:
-1. Eine messages.json um Nachrichten anzupassen. (evtl mehrsprachige Funktionen)
-2. Ticket close log channel
-3. vieles mehr
+## Tasks:
+* [ ] Including messages.json for custom messages setup.
+* [ ] Multi-Language for each Guild. (de-DE.json, en-GB.json, etc)
+* [ ] Ticket Logging Channel on close.
 
 ## Dependencies:
   * JDA (Java Discord API)
