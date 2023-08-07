@@ -76,6 +76,10 @@ $ sudo service apache2 restart
 Well done😄 Enjoy!
 
 ## Screenshots:
+<details> <summary>Create a new Ticket for you or others.</summary>
+ <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/create-ticket.png" height="200">
+ <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/create-for-others.png" height="200">
+</details>
 
 
 ## Tasks:
