@@ -75,6 +75,9 @@ $ sudo service apache2 restart
 ```
 Well done😄 Enjoy!
 
+## Screenshots:
+
+
 ## Tasks:
 * [ ] Including messages.json for custom messages setup.
 * [ ] Multi-Language for each Guild. (de-DE.json, en-GB.json, etc)
