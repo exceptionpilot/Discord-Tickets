@@ -23,7 +23,6 @@ public class CommandManager extends ListenerAdapter {
 
         commandsMap = new ConcurrentHashMap<>();
 
-        commandsMap.put("ticket", new TicketCommand());
         commandsMap.put("config", new ConfigCommand());
         commandsMap.put("help", new HelpCommand());
         commandsMap.put("topic", new TopicCommand());

@@ -5,7 +5,6 @@ import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.exceptions.ErrorHandler;
-import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.managers.channel.concrete.TextChannelManager;
 import net.dv8tion.jda.api.requests.ErrorResponse;
@@ -24,7 +23,7 @@ import java.util.List;
 
 public class TicketWrapper {
 
-    Logger logger = LoggerFactory.getLogger(TicketWrapper.class);
+    Logger logger = LoggerFactory.getLogger(this.getClass());
     String apiUrl = "https://api.travelgeeks.world/ticket/"; // own api coming soon...
     TicketManagement ticketManagement = TicketBot.getInstance().getTicketManagement();
     GuildManagement guildManagement = TicketBot.getInstance().getGuildManagement();
