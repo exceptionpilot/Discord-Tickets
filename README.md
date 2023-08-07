@@ -1,7 +1,7 @@
 [discord-invite]: https://discord.gg/V6KB4kQnKc
 <code><img align="right" src="https://cdn.discordapp.com/avatars/1024758270327533628/24e01d61e543269a5f5b754375bfade7.png?size=2048" height="200" width="200"></code>
 ## Java-Ticket-Bot
-
+A Ticket bot has been thoughtfully crafted for Discord using the JDA (Java Discord API). This delightful bot offers a range of features, including the ability to view previous transcripts on the web.
 
 
 ## Navigation:
