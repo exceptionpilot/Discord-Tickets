@@ -109,7 +109,7 @@ Command       | Description
 ## Tasks:
 * [ ] Including messages.json for custom messages setup.
 * [ ] Multi-Language for each Guild. (de-DE.json, en-GB.json, etc)
-* [ ] Ticket Logging Channel on close.
+* [x] Ticket Logging Channel on close.
 * [ ] Including a Plugin-System for Developers
 
 ## Dependencies:
