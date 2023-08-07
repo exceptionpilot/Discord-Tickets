@@ -10,16 +10,16 @@ A Ticket bot has been thoughtfully crafted for Discord using the JDA (Java Disco
 
 ## Getting started:
 * Connect to your server using the SFTP client.
- * > If a release is available, you can also use git on SSH
+  * If a release is available, you can also use git on SSH
 * Open the `/home` directory and upload your Build jar file.
- * > If you want use the command `mkdir ticketBot` for our own path.
+  * If you want use the command `mkdir ticketBot` for our own path.
 * Switch to your SSH client and navigate to the current path.
 * Start your Build Java Document using the command: `java -jar (filename).jar`
- * You can also do this in a screen: `screen -R discord_ticket java -jar (filename).jar`
+  * You can also do this in a screen: `screen -R discord_ticket java -jar (filename).jar`
 * The Java file will create all the necessary files you need.
- * Configuration Files: `.env & config.json`
+  * Configuration Files: `.env & config.json`
 * Use the command `nano .env` to open the .env file and insert your Token. (Save and close the file after editing)
- * Checkout the [Discord Developer Portal](https://discord.com/developers/docs/getting-started) 
+  * Checkout the [Discord Developer Portal](https://discord.com/developers/docs/getting-started) 
 * Use the command `nano config.json` to open the config.json file and set up your MySQL and Domain/IP for the Transcript API.
 
 
