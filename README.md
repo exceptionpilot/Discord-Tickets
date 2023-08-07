@@ -80,7 +80,18 @@ Well done😄 Enjoy!
  <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/create-ticket.png" height="200">
  <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/create-for-others.png" height="200">
 </details>
-
+<details> <summary>Ticket in progress.</summary>
+ <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/ticket-progress.png" height="200">
+ <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/ticket-topic.png" height="200">
+ <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/add-remove-member.png" height="200">
+</details>
+<details> <summary>Transcript view and Announcement.</summary>
+ <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/dm-transcript.png" height="200">
+ <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/web-transcript-view.png" height="200">
+</details>
+<details> <summary>Syntax for bad usage.</summary>
+ <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/not-in-ticket.png" height="200">
+</details>
 
 ## Tasks:
 * [ ] Including messages.json for custom messages setup.
