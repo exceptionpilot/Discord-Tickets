@@ -1,6 +1,6 @@
 [discord-invite]: https://discord.gg/V6KB4kQnKc
 ## Java-Ticket-Bot
-<img align="right" src="https://cdn.discordapp.com/avatars/1024758270327533628/24e01d61e543269a5f5b754375bfade7.png?size=2048" height="200" width="200">
+<code><img align="right" src="https://cdn.discordapp.com/avatars/1024758270327533628/24e01d61e543269a5f5b754375bfade7.png?size=2048" height="200" width="200"></code>
 
 
 ## Navigation:
