@@ -1,5 +1,7 @@
-![logo](https://cdn.discordapp.com/attachments/1133772375368941628/1133773227458564116/772EBBB6-E091-4D95-964F-45A8652A0E5E.png)
+[discord-invite]: https://discord.gg/V6KB4kQnKc
 ## Java-Ticket-Bot
+<img align="right" src="https://cdn.discordapp.com/avatars/1024758270327533628/24e01d61e543269a5f5b754375bfade7.png?size=2048" height="200" width="200">
+
 
 ## Navigation:
 1. [Config](#configure)
