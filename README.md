@@ -110,6 +110,7 @@ Command       | Description
 * [ ] Including messages.json for custom messages setup.
 * [ ] Multi-Language for each Guild. (de-DE.json, en-GB.json, etc)
 * [ ] Ticket Logging Channel on close.
+* [ ] Including a Plugin-System for Developers
 
 ## Dependencies:
   * JDA (Java Discord API)
