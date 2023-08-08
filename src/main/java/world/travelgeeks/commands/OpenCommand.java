@@ -37,9 +37,9 @@ public class OpenCommand implements ICommand {
 
         if (event.getOption("member") == null) {
             Member member = event.getMember();
-            if (ticketManagement.hasTicket(guild, member)) {
+            if (!ticketManagement.hasTicket(guild, member.getIdLong())) {
                 event.replyEmbeds(created(ticketWrapper.open(guild, member)).build()).setEphemeral(true).queue();
-            } else event.deferReply(true).setContent(":x: You are already in a ticket: " + ticketManagement.getChannel(event.getGuild(), event.getMember()).getAsMention()).queue();
+            } else event.deferReply(true).setContent(":x: You are already in a ticket: " + ticketManagement.getChannel(event.getGuild(), event.getMember().getIdLong()).getAsMention()).queue();
             return;
         }
 
@@ -49,8 +49,8 @@ public class OpenCommand implements ICommand {
         }
 
         Member member = event.getOption("member").getAsMember();
-        if (ticketManagement.hasTicket(guild, member)) {
+        if (!ticketManagement.hasTicket(guild, member.getIdLong())) {
             event.replyEmbeds(created(ticketWrapper.open(guild, member)).build()).setEphemeral(true).queue();
-        } else event.deferReply(true).setContent(":x: You are already in a ticket: " + ticketManagement.getChannel(event.getGuild(), event.getMember()).getAsMention()).queue();
+        } else event.deferReply(true).setContent(":x: You are already in a ticket: " + ticketManagement.getChannel(event.getGuild(), event.getMember().getIdLong()).getAsMention()).queue();
     }
 }

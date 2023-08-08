@@ -68,21 +68,21 @@ public class TicketWrapper {
     }
 
     public TicketWrapper close(TextChannel channel) {
-        Member member = ticketManagement.getMember(channel.getGuild(), channel);
+        User user = channel.getJDA().getUserById(ticketManagement.getMemberById(channel.getGuild(), channel));
         String url = transcript(channel);
 
-        Message message = loggingManagement.getMessage(channel.getGuild(), member);
+        Message message = loggingManagement.getMessage(channel.getGuild(), user.getIdLong());
         EmbedBuilder builder = new EmbedBuilder();
         builder.setDescription("This ticket has already been **closed**.");
-        builder.addField("User:", member.getEffectiveName(), true);
+        builder.addField("User:", user.getEffectiveName(), true);
         builder.addField("Ticket:", channel.getName(), true);
         builder.setColor(Color.decode("#D0F7F4"));
         message.editMessageEmbeds(builder.build()).setActionRow(Button.link(url, "Transcript")).queue();
 
-        this.sendPrivateMessage(member.getUser(), "Your ticket has been closed.", url);
+        this.sendPrivateMessage(user, "Your ticket has been closed.", url);
 
-        ticketManagement.delete(channel.getGuild(), (Member) member);
-        loggingManagement.delete(channel.getGuild(), member);
+        ticketManagement.delete(channel.getGuild(), user.getIdLong());
+        loggingManagement.delete(channel.getGuild(), user.getIdLong());
         channel.delete().queue();
         return this;
     }
@@ -103,7 +103,7 @@ public class TicketWrapper {
         textChannelManager.putMemberPermissionOverride(member.getIdLong(), permissions, null);
         textChannelManager.queue();
 
-        Message message = loggingManagement.getMessage(channel.getGuild(), member);
+        Message message = loggingManagement.getMessage(channel.getGuild(), member.getIdLong());
         EmbedBuilder builder = new EmbedBuilder();
         builder.setDescription("This ticket is already in progress.");
         builder.addField("Claim:", member.getEffectiveName(), true);

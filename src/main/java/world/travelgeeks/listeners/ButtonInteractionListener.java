@@ -20,18 +20,18 @@ public class ButtonInteractionListener extends ListenerAdapter {
 
     @Override
     public void onButtonInteraction(ButtonInteractionEvent event) {
-        TicketWrapper ticketWrapper = new TicketWrapper();
+        TicketWrapper ticketWrapper = TicketBot.getInstance().getTicketWrapper();
         switch (event.getButton().getId()) {
             case "open_ticket":
 
-                if (management.hasTicket(event.getGuild(), event.getMember())) {
-
+                if (!management.hasTicket(event.getGuild(), event.getMember().getIdLong())) {
+                    event.deferReply(true).queue();
                     TextChannel ticketChannel = ticketWrapper.open(event.getGuild(), event.getMember());
                     EmbedBuilder builder = new EmbedBuilder();
                     builder.setDescription("Ticket created in: " + ticketChannel.getAsMention()).setColor(Color.decode("#D0F7F4"));
-                    event.replyEmbeds(builder.build()).setEphemeral(true).queue();
+                    event.getHook().editOriginalEmbeds(builder.build()).queue();
 
-                } else event.deferReply(true).setContent(":x: You are already in a ticket: " + management.getChannel(event.getGuild(), event.getMember()).getAsMention()).queue();
+                } else event.deferReply(true).setContent(":x: You are already in a ticket: " + management.getChannel(event.getGuild(), event.getMember().getIdLong()).getAsMention()).queue();
 
                 break;
 

@@ -52,10 +52,10 @@ public class LoggingConnector implements LoggingAdapter {
     }
 
     @Override
-    public void delete(Guild guild, Member member) {
+    public void delete(Guild guild, long userId) {
         try {
             Statement statement = this.connection.createStatement();
-            statement.executeUpdate("DELETE FROM Logging WHERE guildID='" + guild.getIdLong() + "' AND memberID='" + member.getIdLong() + "'");
+            statement.executeUpdate("DELETE FROM Logging WHERE guildID='" + guild.getIdLong() + "' AND memberID='" + userId + "'");
             statement.close();
         } catch (SQLException exception) {
             exception.printStackTrace();
@@ -65,10 +65,10 @@ public class LoggingConnector implements LoggingAdapter {
     }
 
     @Override
-    public Message getMessage(Guild guild, Member member) {
+    public Message getMessage(Guild guild, long userId) {
         RestAction<Message> message = null;
         try {
-            PreparedStatement select = this.connection.prepareStatement("SELECT * FROM Logging WHERE guildID='" + guild.getIdLong() + "' AND memberID='" + member.getIdLong() + "'");
+            PreparedStatement select = this.connection.prepareStatement("SELECT * FROM Logging WHERE guildID='" + guild.getIdLong() + "' AND memberID='" + userId + "'");
             ResultSet resultSet = select.executeQuery();
             if (!resultSet.next() || resultSet.getLong("messageID") == 0) return null;
             TextChannel channel = guildManagement.getLogChannel(guild);

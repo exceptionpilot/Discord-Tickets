@@ -18,8 +18,8 @@ public class TicketManagement implements TicketAdapter {
     }
 
     @Override
-    public void delete(Guild guild, Member member) {
-        this.ticketAdapter.delete(guild, member);
+    public void delete(Guild guild, long userId) {
+        this.ticketAdapter.delete(guild, userId);
     }
 
     @Override
@@ -28,13 +28,18 @@ public class TicketManagement implements TicketAdapter {
     }
 
     @Override
-    public TextChannel getChannel(Guild guild, Member member) {
-        return this.ticketAdapter.getChannel(guild, member);
+    public long getMemberById(Guild guild, TextChannel channel) {
+        return this.ticketAdapter.getMemberById(guild, channel);
     }
 
     @Override
-    public boolean hasTicket(Guild guild, Member member) {
-        return this.ticketAdapter.hasTicket(guild, member);
+    public TextChannel getChannel(Guild guild, long memberID) {
+        return this.ticketAdapter.getChannel(guild, memberID);
+    }
+
+    @Override
+    public boolean hasTicket(Guild guild, long memberID) {
+        return this.ticketAdapter.hasTicket(guild, memberID);
     }
 
     @Override

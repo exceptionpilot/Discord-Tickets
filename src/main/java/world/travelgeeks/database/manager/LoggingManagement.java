@@ -19,12 +19,12 @@ public class LoggingManagement implements LoggingAdapter {
     }
 
     @Override
-    public void delete(Guild guild, Member member) {
-        this.loggingAdapter.delete(guild, member);
+    public void delete(Guild guild, long userId) {
+        this.loggingAdapter.delete(guild, userId);
     }
 
     @Override
-    public Message getMessage(Guild guild, Member member) {
-        return this.loggingAdapter.getMessage(guild, member);
+    public Message getMessage(Guild guild, long userId) {
+        return this.loggingAdapter.getMessage(guild, userId);
     }
 }

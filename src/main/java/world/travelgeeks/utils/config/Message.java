@@ -16,10 +16,9 @@ public class Message {
     JSONParser parser = new JSONParser();
 
     public Message() {
-        this.permission = (String) parse("$.error.permission");
-        this.onlyGuild = (String) parse("$.error.private");
-        this.category = (String) parse("$.error.category");
-
+        this.permission = (String) parse("permission");
+        this.onlyGuild = (String) parse("private");
+        this.category = (String) parse("category");
     }
 
     public String getPermission() {
@@ -35,7 +34,7 @@ public class Message {
     }
 
     private Object parse(String path) {
-        try (FileReader reader = new FileReader("config.json")) {
+        try (FileReader reader = new FileReader("messages.json")) {
             JSONObject object = (JSONObject) parser.parse(reader);
             return object.get(path);
         } catch (IOException | ParseException exception) {

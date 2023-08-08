@@ -62,6 +62,7 @@ public class TicketBot {
             fileExporter.exportResourceFile(".env");
             fileExporter.exportResourceFile("config.json");
             fileExporter.exportResourceFile("database.json");
+            fileExporter.exportResourceFile("messages.json");
             fileExporter.exportResourceFile("style.css", "transcripts");
 
             new TicketBot();

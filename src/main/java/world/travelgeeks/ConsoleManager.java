@@ -1,5 +1,7 @@
 package world.travelgeeks;
 
+import world.travelgeeks.commands.console.ExitCommand;
+import world.travelgeeks.commands.console.SendCommand;
 import world.travelgeeks.interfaces.IConsole;
 
 import java.io.BufferedReader;
@@ -14,6 +16,8 @@ public class ConsoleManager {
 
     public ConsoleManager() {
         commandsMap = new ConcurrentHashMap<>();
+        commandsMap.put("exit", new ExitCommand());
+        commandsMap.put("send", new SendCommand());
 
         (new Thread(() -> { String line = "";
 

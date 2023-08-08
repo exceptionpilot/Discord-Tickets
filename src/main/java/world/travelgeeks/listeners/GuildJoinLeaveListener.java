@@ -47,14 +47,9 @@ public class GuildJoinLeaveListener extends ListenerAdapter {
 
     @Override
     public void onGuildMemberRemove(GuildMemberRemoveEvent event) {
-        // TODO: Ticket closing change from Member to User.
-
-        //long userID = event.getUser().getIdLong();
-        //long guildID = event.getGuild().getIdLong();
-        //Guild guild = event.getGuild();
-        //if (!ticketManagement.hasTicket(guild, event.getMember())) {
-        //    ticketWrapper.close(ticketManagement.getChannel(guild, event.getMember().getGuild().getMemberById(userID)));
-        // }
+        Guild guild = event.getGuild();
+        if (ticketManagement.hasTicket(guild, event.getUser().getIdLong())) {
+            ticketWrapper.close(ticketManagement.getChannel(guild, event.getUser().getIdLong()));
+        }
     }
-
 }
