@@ -102,8 +102,7 @@ public class TicketWrapper {
         textChannelManager.putRolePermissionOverride(guildManagement.getRole(channel.getGuild()).getIdLong(), null, permissions);
         textChannelManager.putMemberPermissionOverride(member.getIdLong(), permissions, null);
         textChannelManager.queue();
-
-        Message message = loggingManagement.getMessage(channel.getGuild(), member.getIdLong());
+        Message message = loggingManagement.getMessage(channel.getGuild(), ticketManagement.getMemberById(channel.getGuild(), channel));
         EmbedBuilder builder = new EmbedBuilder();
         builder.setDescription("This ticket is already in progress.");
         builder.addField("Claim:", member.getEffectiveName(), true);

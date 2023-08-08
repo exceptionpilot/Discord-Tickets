@@ -3,6 +3,7 @@ package world.travelgeeks.database;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.MessageHistory;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.requests.RestAction;
 import org.slf4j.Logger;
@@ -66,18 +67,20 @@ public class LoggingConnector implements LoggingAdapter {
 
     @Override
     public Message getMessage(Guild guild, long userId) {
-        RestAction<Message> message = null;
+        Message message = null;
+
         try {
             PreparedStatement select = this.connection.prepareStatement("SELECT * FROM Logging WHERE guildID='" + guild.getIdLong() + "' AND memberID='" + userId + "'");
             ResultSet resultSet = select.executeQuery();
             if (!resultSet.next() || resultSet.getLong("messageID") == 0) return null;
             TextChannel channel = guildManagement.getLogChannel(guild);
-            message = channel.retrieveMessageById(resultSet.getLong("messageID"));
+            MessageHistory history = MessageHistory.getHistoryFromBeginning(channel).complete(false);
+            message = history.getMessageById(resultSet.getLong("messageID"));
             resultSet.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
-            return message.complete();
+            return message;
         }
     }
 }
