@@ -59,7 +59,7 @@ public class TicketBot {
     private static TicketBot INSTANCE;
     public static void main(String[] args) {
 
-        System.out.println("    ____  _  v.1.1.1                 __   _______      __        __\n" +
+        System.out.println("    ____  _  v.1.1.2                 __   _______      __        __\n" +
                 "   / __ \\(_)_____________  _________/ /  /_  __(_)____/ /_____  / /______\n" +
                 "  / / / / / ___/ ___/ __ \\/ ___/ __  /    / / / / ___/ //_/ _ \\/ __/ ___/\n" +
                 " / /_/ / (__  ) /__/ /_/ / /  / /_/ /    / / / / /__/ ,< /  __/ /_(__  )\n" +
