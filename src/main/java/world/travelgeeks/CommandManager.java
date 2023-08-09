@@ -3,6 +3,7 @@ package world.travelgeeks;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.commands.Command;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
@@ -49,6 +50,9 @@ public class CommandManager extends ListenerAdapter {
                 .addOptions(new OptionData(OptionType.CHANNEL, "category", "Choose a category for your tickets.")));
         commands.addCommands(Commands.slash("topic", "Change the ticket topic")
                 .addOptions(new OptionData(OptionType.STRING, "topic", "Change the ticket topic", true)));
+
+        // Application Commands
+        commands.addCommands(Commands.context(Command.Type.USER, "Open Ticket")).queue();
 
         commands.queue();
     }

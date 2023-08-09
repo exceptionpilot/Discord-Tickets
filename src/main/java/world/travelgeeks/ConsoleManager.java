@@ -26,7 +26,6 @@ public class ConsoleManager {
             try {
                 while ((line = reader.readLine()) != null) {
                     IConsole command;
-                    System.out.print("{TICKET-BOT} CONSOLE ⋙ ");
 
                     String[]args = line.split(" ");
 

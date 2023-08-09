@@ -5,7 +5,6 @@ import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
-import net.dv8tion.jda.api.requests.Route;
 import world.travelgeeks.TicketBot;
 import world.travelgeeks.database.manager.TicketManagement;
 import world.travelgeeks.interfaces.ICommand;

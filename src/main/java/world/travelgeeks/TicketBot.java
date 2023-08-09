@@ -31,6 +31,7 @@ import world.travelgeeks.interfaces.adapter.LoggingAdapter;
 import world.travelgeeks.interfaces.adapter.TicketAdapter;
 import world.travelgeeks.listeners.ButtonInteractionListener;
 import world.travelgeeks.listeners.GuildJoinLeaveListener;
+import world.travelgeeks.listeners.UserContextInteractionListener;
 import world.travelgeeks.utils.TicketWrapper;
 import world.travelgeeks.utils.config.Configuration;
 import world.travelgeeks.utils.FileExporter;
@@ -119,6 +120,7 @@ public class TicketBot {
         builder.addEventListeners(new ConfigCommand());
         builder.addEventListeners(new ButtonInteractionListener());
         builder.addEventListeners(new GuildJoinLeaveListener());
+        builder.addEventListeners(new UserContextInteractionListener());
 
         jda = builder.build();
         jda.addEventListener(new CommandManager());

@@ -67,20 +67,21 @@ public class LoggingConnector implements LoggingAdapter {
 
     @Override
     public Message getMessage(Guild guild, long userId) {
-        Message message = null;
+        RestAction<Message> message = null;
 
         try {
             PreparedStatement select = this.connection.prepareStatement("SELECT * FROM Logging WHERE guildID='" + guild.getIdLong() + "' AND memberID='" + userId + "'");
             ResultSet resultSet = select.executeQuery();
             if (!resultSet.next() || resultSet.getLong("messageID") == 0) return null;
             TextChannel channel = guildManagement.getLogChannel(guild);
-            MessageHistory history = MessageHistory.getHistoryFromBeginning(channel).complete(false);
-            message = history.getMessageById(resultSet.getLong("messageID"));
+            message = channel.retrieveMessageById(resultSet.getLong("messageID"));
+            // MessageHistory history = MessageHistory.getHistoryFromBeginning(channel).complete(false);
+            //message = history.getMessageById(resultSet.getLong("messageID"));
             resultSet.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
-            return message;
+            return message.complete();
         }
     }
 }
