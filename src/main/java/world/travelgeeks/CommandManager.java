@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.interactions.commands.Command;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
+import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 import world.travelgeeks.commands.*;
 import world.travelgeeks.interfaces.ICommand;
@@ -32,6 +33,7 @@ public class CommandManager extends ListenerAdapter {
         commandsMap.put("add", new AddCommand());
         commandsMap.put("remove", new RemoveCommand());
         commandsMap.put("claim", new ClaimCommand());
+        commandsMap.put("ticket", new TicketCommand());
 
         CommandListUpdateAction commands = jda.updateCommands();
 
@@ -50,6 +52,12 @@ public class CommandManager extends ListenerAdapter {
                 .addOptions(new OptionData(OptionType.CHANNEL, "category", "Choose a category for your tickets.")));
         commands.addCommands(Commands.slash("topic", "Change the ticket topic")
                 .addOptions(new OptionData(OptionType.STRING, "topic", "Change the ticket topic", true)));
+        commands.addCommands(Commands.slash("ticket", "Ticket management.")
+                .addSubcommands(new SubcommandData("ban", "Ban a ticket User")
+                                .addOptions(new OptionData(OptionType.USER, "user", "Select a user", true)),
+                        new SubcommandData("unban", "Unban a ticket user.")
+                                .addOptions(new OptionData(OptionType.USER, "user", "Select a user", true))
+                ));
 
         // Application Commands
         commands.addCommands(Commands.context(Command.Type.USER, "Open Ticket")).queue();

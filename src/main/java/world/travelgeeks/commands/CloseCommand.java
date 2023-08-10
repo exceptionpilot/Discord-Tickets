@@ -7,8 +7,6 @@ import world.travelgeeks.database.manager.TicketManagement;
 import world.travelgeeks.interfaces.ICommand;
 import world.travelgeeks.utils.TicketWrapper;
 
-import java.awt.*;
-
 public class CloseCommand implements ICommand {
 
     TicketManagement ticketManagement = TicketBot.getInstance().getTicketManagement();

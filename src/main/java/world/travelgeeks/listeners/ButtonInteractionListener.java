@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import world.travelgeeks.TicketBot;
+import world.travelgeeks.database.manager.BanManagement;
 import world.travelgeeks.database.manager.GuildManagement;
 import world.travelgeeks.database.manager.TicketManagement;
 import world.travelgeeks.utils.TicketWrapper;
@@ -17,12 +18,18 @@ public class ButtonInteractionListener extends ListenerAdapter {
 
     TicketManagement management = TicketBot.getInstance().getTicketManagement();
     GuildManagement guildManagement = TicketBot.getInstance().getGuildManagement();
+    BanManagement banManagement = TicketBot.getInstance().getBanManagement();
 
     @Override
     public void onButtonInteraction(ButtonInteractionEvent event) {
         TicketWrapper ticketWrapper = TicketBot.getInstance().getTicketWrapper();
         switch (event.getButton().getId()) {
             case "open_ticket":
+
+                if (banManagement.hasBan(event.getGuild(), event.getUser())) {
+                    event.deferReply(true).setContent(":x: Action canceled. You are ticket banned.").queue();
+                    return;
+                }
 
                 if (!management.hasTicket(event.getGuild(), event.getMember().getIdLong())) {
                     event.deferReply(true).queue();

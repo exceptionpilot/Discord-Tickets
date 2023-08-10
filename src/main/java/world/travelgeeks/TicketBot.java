@@ -19,13 +19,12 @@ import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import world.travelgeeks.commands.ConfigCommand;
-import world.travelgeeks.database.GuildConnector;
-import world.travelgeeks.database.LoggingConnector;
-import world.travelgeeks.database.MySQL;
-import world.travelgeeks.database.TicketConnector;
+import world.travelgeeks.database.*;
+import world.travelgeeks.database.manager.BanManagement;
 import world.travelgeeks.database.manager.GuildManagement;
 import world.travelgeeks.database.manager.LoggingManagement;
 import world.travelgeeks.database.manager.TicketManagement;
+import world.travelgeeks.interfaces.adapter.BanAdapter;
 import world.travelgeeks.interfaces.adapter.GuildAdapter;
 import world.travelgeeks.interfaces.adapter.LoggingAdapter;
 import world.travelgeeks.interfaces.adapter.TicketAdapter;
@@ -54,12 +53,14 @@ public class TicketBot {
     private GuildManagement guildManagement;
     private LoggingConnector loggingConnector;
     private LoggingManagement loggingManagement;
+    private BanConnector banConnector;
+    private BanManagement banManagement;
     private TicketWrapper ticketWrapper;
 
     private static TicketBot INSTANCE;
     public static void main(String[] args) {
 
-        System.out.println("    ____  _  v.1.1.2                 __   _______      __        __\n" +
+        System.out.println("    ____  _  v.1.2.0                 __   _______      __        __\n" +
                 "   / __ \\(_)_____________  _________/ /  /_  __(_)____/ /_____  / /______\n" +
                 "  / / / / / ___/ ___/ __ \\/ ___/ __  /    / / / / ___/ //_/ _ \\/ __/ ___/\n" +
                 " / /_/ / (__  ) /__/ /_/ / /  / /_/ /    / / / / /__/ ,< /  __/ /_(__  )\n" +
@@ -98,6 +99,8 @@ public class TicketBot {
         this.guildManagement = new GuildManagement((GuildAdapter) this.guildConnector);
         this.loggingConnector = new LoggingConnector((Connection) this.sql.getConnection());
         this.loggingManagement = new LoggingManagement((LoggingAdapter) this.loggingConnector);
+        this.banConnector = new BanConnector((Connection) this.sql.getConnection());
+        this.banManagement = new BanManagement((BanAdapter) this.banConnector);
 
         this.ticketWrapper = new TicketWrapper();
 
@@ -148,6 +151,10 @@ public class TicketBot {
 
     public LoggingManagement getLoggingManagement() {
         return loggingManagement;
+    }
+
+    public BanManagement getBanManagement() {
+        return banManagement;
     }
 
     public TicketWrapper getTicketWrapper() {

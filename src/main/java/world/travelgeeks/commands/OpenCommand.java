@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import world.travelgeeks.TicketBot;
+import world.travelgeeks.database.manager.BanManagement;
 import world.travelgeeks.database.manager.TicketManagement;
 import world.travelgeeks.interfaces.ICommand;
 import world.travelgeeks.utils.TicketWrapper;
@@ -16,6 +17,7 @@ public class OpenCommand implements ICommand {
 
     TicketWrapper ticketWrapper = TicketBot.getInstance().getTicketWrapper();
     TicketManagement ticketManagement = TicketBot.getInstance().getTicketManagement();
+    BanManagement banManagement = TicketBot.getInstance().getBanManagement();
 
 
     public EmbedBuilder created(TextChannel channel) {
@@ -43,6 +45,11 @@ public class OpenCommand implements ICommand {
 
         if (!event.getMember().hasPermission(Permission.ADMINISTRATOR)) {
             event.reply(":x: Missing Permission: " + Permission.ADMINISTRATOR).queue();
+            return;
+        }
+        User targetUser = event.getOption("member").getAsUser();
+        if (banManagement.hasBan(event.getGuild(), targetUser)) {
+            event.deferReply(true).setContent(":x: The user " + targetUser.getName() + " is ticket banned.").queue();
             return;
         }
 

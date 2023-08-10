@@ -125,7 +125,7 @@ public class GuildConnector implements GuildAdapter {
         } catch (SQLException exception) {
             exception.printStackTrace();
             sql.reconnect();
-            logger.debug("AUTO-FIX -> Reconnected to Database!");
+            logger.debug("Reconnected to Database!");
         }
     }
 
