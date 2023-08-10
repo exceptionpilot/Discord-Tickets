@@ -1,8 +1,9 @@
+Pre-Release beta-1.2.0 out now!
+
 <code><img align="right" src="https://cdn.discordapp.com/avatars/1024758270327533628/24e01d61e543269a5f5b754375bfade7.png?size=2048" height="200" width="200"></code>
 [![Discord Shield](https://discordapp.com/api/guilds/1013213427843485817/widget.png?style=shield)](https://discord.gg/V6KB4kQnKc)
 ## Java-Ticket-Bot
 Introducing our meticulously crafted Ticket bot for Discord, powered by the JDA (Java Discord API). This delightful bot offers various features, including web-based access to previous transcripts. Enhance your server experience with seamless ticket management and effortless interaction. Enjoy the convenience and versatility it brings to your Discord community!
-
 
 ## Summary:
 1. [Getting started](#getting-started)
@@ -105,11 +106,17 @@ Command       | Description
 <details> <summary>Syntax for bad usage.</summary>
  <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/not-in-ticket.png" height="200">
 </details>
+<details> <summary>Ticket Logging/Status.</summary>
+ <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/log-ticket-create.png" height="200">
+ <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/log-ticket-claim.png" height="200">
+ <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/log-ticket-close.png" height="200">
+</details>
 
 ## Tasks:
 * [ ] Including messages.json for custom messages setup.
 * [ ] Multi-Language for each Guild. (de-DE.json, en-GB.json, etc)
 * [x] Ticket Logging Channel on close.
+* [x] Ban System
 * [ ] Including a Plugin-System for Developers
 
 ## Dependencies:
