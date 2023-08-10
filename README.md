@@ -5,7 +5,6 @@ Pre-Release beta-1.2.0 out now!
 ## Java-Ticket-Bot
 Introducing our meticulously crafted Ticket bot for Discord, powered by the JDA (Java Discord API). This delightful bot offers various features, including web-based access to previous transcripts. Enhance your server experience with seamless ticket management and effortless interaction. Enjoy the convenience and versatility it brings to your Discord community!
 
-
 ## Summary:
 1. [Getting started](#getting-started)
 2. [Transcript Guide](#transcript-guide)
@@ -107,11 +106,17 @@ Command       | Description
 <details> <summary>Syntax for bad usage.</summary>
  <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/not-in-ticket.png" height="200">
 </details>
+<details> <summary>Ticket Logging/Status.</summary>
+ <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/log-ticket-create.png" height="200">
+ <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/log-ticket-claim.png" height="200">
+ <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/log-ticket-close.png" height="200">
+</details>
 
 ## Tasks:
 * [ ] Including messages.json for custom messages setup.
 * [ ] Multi-Language for each Guild. (de-DE.json, en-GB.json, etc)
 * [x] Ticket Logging Channel on close.
+* [x] Ban System
 * [ ] Including a Plugin-System for Developers
 
 ## Dependencies:
