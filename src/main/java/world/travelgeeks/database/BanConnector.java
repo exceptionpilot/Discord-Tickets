@@ -40,7 +40,7 @@ public class BanConnector implements BanAdapter {
     @Override
     public void ban(Guild guild, User user, Timestamp timestamp) {
         try {
-            PreparedStatement statement = this.connection.prepareStatement("insert into Ban values(?,?)");
+            PreparedStatement statement = this.connection.prepareStatement("insert into Ban values(?,?,?)");
             statement.setLong(1, guild.getIdLong());
             statement.setLong(2, user.getIdLong());
             statement.setTimestamp(3, timestamp);
@@ -84,10 +84,11 @@ public class BanConnector implements BanAdapter {
     public Timestamp getExpire(Guild guild, User user) {
         Timestamp expiring = null;
         try {
-            PreparedStatement statement = sql.getConnection().prepareStatement("SELECT * FROM `Ban` WHERE guildID=`" + guild.getIdLong() + "` AND userID`" + user.getIdLong() + "`");
+            PreparedStatement statement = sql.getConnection().prepareStatement("SELECT * FROM Ban WHERE guildID='" + guild.getIdLong() + "' AND userID='" + user.getIdLong() + "'");
             ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next())
+            while (resultSet.next()) {
                 expiring = resultSet.getTimestamp("expiring");
+            }
             resultSet.close();
             statement.close();
         } catch (SQLException exception) {
@@ -99,7 +100,7 @@ public class BanConnector implements BanAdapter {
 
     @Override
     public boolean isExpired(Guild guild, User user) {
-        if (banManagement.getExpire(guild, user).toLocalDateTime().isBefore(LocalDateTime.now())) {
+        if (this.getExpire(guild, user).toLocalDateTime().isBefore(LocalDateTime.now())) {
             return true;
         }
         return false;

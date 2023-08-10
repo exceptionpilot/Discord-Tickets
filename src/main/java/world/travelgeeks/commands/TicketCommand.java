@@ -28,7 +28,7 @@ public class TicketCommand implements ICommand {
             return;
         }
 
-        if (event.getMember().hasPermission(Permission.ADMINISTRATOR)) {
+        if (!event.getMember().hasPermission(Permission.ADMINISTRATOR)) {
             event.reply(":x: Missing Permission: " + Permission.ADMINISTRATOR).queue();
             return;
         }
