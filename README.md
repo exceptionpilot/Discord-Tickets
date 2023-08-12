@@ -38,7 +38,8 @@ Install apache2 via SSH.
 ```ssh
 $ sudo apt install apache2
 ```
-> This is only the basic setup, for more security check out the [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04) Wiki.
+> This is only the basic setup, for more security check out the [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04) Wiki. 
+
 Open apache2 configuration file in the nano Editor.
 ```ssh
 ## Input
@@ -79,15 +80,15 @@ $ sudo service apache2 restart
 Well done😄 Enjoy!
 
 ## Commands:
-Command       | Description
-------------- | -------------
-/config       | Change Guild configurations
-/open         | Open a Ticket via Command
-/close        | Close a Ticket via Command
-/add          | Add a Member to a current ticket
-/remove       | Remove a Member from a current ticket
-/claim        | Show that you are progressing with this ticket
-/topic        | Change the ticket Topic
+| Command | Description                                    |
+|---------|------------------------------------------------|
+| /config | Change Guild configurations                    |
+| /open   | Open a Ticket via Command                      |
+| /close  | Close a Ticket via Command                     |
+| /add    | Add a Member to a current ticket               |
+| /remove | Remove a Member from a current ticket          |
+| /claim  | Show that you are progressing with this ticket |
+| /topic  | Change the ticket Topic                        |
 
 ## Screenshots:
 <details> <summary>Create a new Ticket for you or others.</summary>
@@ -115,9 +116,8 @@ Command       | Description
 ## Tasks:
 * [ ] Including messages.json for custom messages setup.
 * [ ] Multi-Language for each Guild. (de-DE.json, en-GB.json, etc)
-* [x] Ticket Logging Channel on close.
-* [x] Ban System
 * [ ] Including a Plugin-System for Developers
+* [ ] Send Transcript via SFTP connection
 
 ## Dependencies:
   * JDA (Java Discord API)
