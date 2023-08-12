@@ -75,14 +75,17 @@ public class GuildConnector implements GuildAdapter {
         try {
             PreparedStatement statement = this.connection.prepareStatement("SELECT * FROM Guilds WHERE guildID='" + guild.getIdLong() + "'");
             ResultSet resultSet = statement.executeQuery();
-            if (!resultSet.next() || resultSet.getLong("logChannelID") == 0) return channel;
+            if (!resultSet.next() || resultSet.getLong("logChannelID") == 0) return null;
             channel = guild.getTextChannelById(resultSet.getLong("logChannelID"));
             resultSet.close();
+
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }finally {
+
+        } finally {
             return channel;
         }
+
     }
 
     @Override

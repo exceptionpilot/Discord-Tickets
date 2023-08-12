@@ -68,8 +68,8 @@ public class TicketWrapper {
     }
 
     public TicketWrapper close(TextChannel channel) {
-        User user = channel.getJDA().getUserById(ticketManagement.getMemberById(channel.getGuild(), channel));
-        String url = transcript(channel);
+        User user = channel.getJDA().retrieveUserById(ticketManagement.getMemberById(channel.getGuild(), channel)).complete();
+        String url = this.transcript(channel);
 
         Message message = loggingManagement.getMessage(channel.getGuild(), user.getIdLong());
         EmbedBuilder builder = new EmbedBuilder();
