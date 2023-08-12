@@ -12,6 +12,7 @@ Introducing our meticulously crafted Ticket bot for Discord, powered by the JDA 
 4. [Screenshots](#screenshots)
 5. [Tasks](#tasks)
 6. [Dependencies](#dependencies)
+7. [Partners](#partners)
 
 ## Getting started:
 * Connect to your server using the SFTP client.
@@ -92,25 +93,25 @@ Well done😄 Enjoy!
 
 ## Screenshots:
 <details> <summary>Create a new Ticket for you or others.</summary>
- <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/create-ticket.png" height="200">
- <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/create-for-others.png" height="200">
+ <img align="center" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/create-ticket.png" height="200">
+ <img align="center" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/create-for-others.png" height="200">
 </details>
 <details> <summary>Ticket in progress.</summary>
- <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/ticket-progress.png" height="200">
- <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/ticket-topic.png" height="200">
- <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/add-remove-member.png" height="200">
+ <img align="center" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/ticket-progress.png" height="200">
+ <img align="center" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/ticket-topic.png" height="200">
+ <img align="center" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/add-remove-member.png" height="200">
 </details>
 <details> <summary>Transcript view and Announcement.</summary>
- <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/dm-transcript.png" height="200">
- <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/web-transcript-view.png" height="200">
+ <img align="center" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/dm-transcript.png" height="200">
+ <img align="center" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/web-transcript-view.png" height="200">
 </details>
 <details> <summary>Syntax for bad usage.</summary>
- <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/not-in-ticket.png" height="200">
+ <img align="center" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/not-in-ticket.png" height="200">
 </details>
 <details> <summary>Ticket Logging/Status.</summary>
- <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/log-ticket-create.png" height="200">
- <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/log-ticket-claim.png" height="200">
- <img align="middle" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/log-ticket-close.png" height="200">
+ <img align="center" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/log-ticket-create.png" height="200">
+ <img align="center" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/log-ticket-claim.png" height="200">
+ <img align="center" src="https://github.com/DevChewbacca/Java-Ticket-Bot/blob/main/images/log-ticket-close.png" height="200">
 </details>
 
 ## Tasks:
@@ -136,6 +137,7 @@ Well done😄 Enjoy!
     * Version: `8.0.33`
     * [GitHub](https://github.com/mysql/mysql-connector-j)
 
+## Partners:
+[<img align="middle" src="https://conrise.de/assets/img/logos/logo-light.png">](https://conri.se/travelgeeks)
 
 Leave a ⭐️ if you like this project!
-  
