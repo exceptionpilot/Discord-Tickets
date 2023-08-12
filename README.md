@@ -1,7 +1,7 @@
-Feel free to test the TicketBot on our Discord. 
-
-<code><img align="right" src="https://cdn.discordapp.com/avatars/1024758270327533628/24e01d61e543269a5f5b754375bfade7.png?size=2048" height="200" width="200"></code>
 [![Discord Shield](https://discordapp.com/api/guilds/1013213427843485817/widget.png?style=shield)](https://discord.gg/V6KB4kQnKc)
+
+<img align="right" src="https://cdn.discordapp.com/avatars/1024758270327533628/24e01d61e543269a5f5b754375bfade7.png?size=2048" height="200" width="200">
+
 ## Java-Ticket-Bot
 Introducing our meticulously crafted Ticket bot for Discord, powered by the JDA (Java Discord API). This delightful bot offers various features, including web-based access to previous transcripts. Enhance your server experience with seamless ticket management and effortless interaction. Enjoy the convenience and versatility it brings to your Discord community!
 
@@ -18,7 +18,7 @@ Introducing our meticulously crafted Ticket bot for Discord, powered by the JDA 
 * Connect to your server using the SFTP client.
   * If a release is available, you can also use git on SSH
 * Open the `/home` directory and upload your Build jar file.
-  * If you want use the command `mkdir ticketBot` for our own path.
+  * If you want to use the command `mkdir ticketBot` for our own path.
 * Switch to your SSH client and navigate to the current path.
 * Start your Build Java Document using the command: `java -jar (filename).jar`
   * You can also do this in a screen: `screen -R discord_ticket java -jar (filename).jar`
