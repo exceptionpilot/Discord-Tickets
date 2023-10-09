@@ -34,7 +34,6 @@ public class LoggingConnector implements LoggingAdapter {
         } catch (SQLException exception) {
             exception.printStackTrace();
             sql.reconnect();
-            logger.debug("AUTO-FIX -> Reconnected to Database!");
         }
     }
 
@@ -60,7 +59,6 @@ public class LoggingConnector implements LoggingAdapter {
         } catch (SQLException exception) {
             exception.printStackTrace();
             sql.reconnect();
-            logger.debug("AUTO-FIX -> Reconnected to Database!");
         }
     }
 

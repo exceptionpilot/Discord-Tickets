@@ -12,6 +12,7 @@ import world.travelgeeks.database.manager.GuildManagement;
 import world.travelgeeks.database.manager.TicketManagement;
 import world.travelgeeks.interfaces.ICommand;
 import world.travelgeeks.utils.TicketWrapper;
+import world.travelgeeks.utils.config.Messages;
 
 import java.awt.*;
 
@@ -22,10 +23,10 @@ public class AddCommand implements ICommand {
     TicketWrapper ticketWrapper = TicketBot.getInstance().getTicketWrapper();
 
     @Override
-    public void execute(SlashCommandInteractionEvent event, User user) {
+    public void execute(SlashCommandInteractionEvent event, User user, Messages messages) {
 
         if (!event.isFromGuild()) {
-            event.reply(":x: This command is only proposed for Guilds!").queue();
+            event.reply(messages.getMessage("syntax.guild").getAsString()).queue();
             return;
         }
 

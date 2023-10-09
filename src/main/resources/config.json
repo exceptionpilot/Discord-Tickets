@@ -1,8 +1,24 @@
 {
-  "api": "https://yourapi.de/",
-  "host": "localhost",
-  "table": "ticket",
-  "user": "root",
-  "port": 3306,
-  "password": "pa$$word"
+  "_commit": "DevMode enables a bunch of backend logging's and will login your bot on the .env key DEV_TOKEN",
+  "fileVersion": 1.0,
+  "devMode": false,
+  "mysql": {
+    "host": "localhost",
+    "table": "ticket",
+    "user": "root",
+    "port": 3306,
+    "password": "pa$$word"
+  },
+  "transcript": {
+    "website": "https://tickets.domain.com/ <-- We would recommend to use a subdomain for this Webstage."
+  },
+  "_commit": "This is currently deprecated!",
+  "sftp": {
+    "status": false,
+    "path": "/var/www",
+    "host": "0.0.0.0",
+    "port": 22,
+    "user": "root",
+    "password": "pa$$word"
+  }
 }

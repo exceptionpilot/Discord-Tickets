@@ -32,11 +32,10 @@ public class TicketWrapper {
 
 
     public TicketWrapper() {
-        this.apiUrl = TicketBot.getInstance().getConfiguration().getApiLink();
+        this.apiUrl = TicketBot.getInstance().getConfiguration().getWebpageUrl();
     }
 
     public TextChannel open(Guild guild, Member member) {
-
         ChannelAction<TextChannel> channelChannelAction = guild.createTextChannel("ticket-" + guildManagement.addTicketCount(guild));
         channelChannelAction.addRolePermissionOverride(guild.getPublicRole().getIdLong(), null, permissions);
         channelChannelAction.addMemberPermissionOverride(member.getIdLong(), permissions, null);
@@ -64,6 +63,7 @@ public class TicketWrapper {
                             (message) -> loggingManagement.create(guild, member, message));
                 });
 
+        logger.info("Guild-Action @" + member.getEffectiveName() + " -> Ticket#open [" + channel.getGuild().getIdLong() + "]");
         return channel;
     }
 
@@ -84,6 +84,7 @@ public class TicketWrapper {
         ticketManagement.delete(channel.getGuild(), user.getIdLong());
         loggingManagement.delete(channel.getGuild(), user.getIdLong());
         channel.delete().queue();
+        logger.info("Guild-Action @" + user.getEffectiveName() + " -> Ticket#close [" + channel.getGuild().getIdLong() + "]");
         return this;
     }
 
@@ -108,7 +109,7 @@ public class TicketWrapper {
         builder.addField("Claim:", member.getEffectiveName(), true);
         builder.setColor(Color.decode("#D0F7F4"));
         message.editMessageEmbeds(builder.build()).queue();
-
+        logger.info("Guild-Action @" + member.getEffectiveName() + " -> Ticket#claim [" + channel.getGuild().getIdLong() + "]");
         return this;
     }
 
@@ -129,6 +130,9 @@ public class TicketWrapper {
             webBuilder.addMessage(message);
         }
         webBuilder.build();
+        String url = apiUrl + channel.getGuild().getIdLong() + "/" + channel.getIdLong();
+
+        logger.info("Guild-Action " + url + " -> Ticket#transcript [" + channel.getGuild().getIdLong() + "]");
         return apiUrl + channel.getGuild().getIdLong() + "/" + channel.getIdLong();
     }
 
@@ -137,7 +141,7 @@ public class TicketWrapper {
                 channel -> channel.sendMessage(content).addActionRow(Button.link(url, "Transcript")))
                 .queue(null, new ErrorHandler()
                         .handle(ErrorResponse.CANNOT_SEND_TO_USER,
-                                (exception) -> logger.info("Cannot send message to user")));
+                                (exception) -> logger.info("Private-Action @" + user.getName() + " -> Ticket#sendPrivateMessage [Cannot send private message]")));
         return this;
     }
 }

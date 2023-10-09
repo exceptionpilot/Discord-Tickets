@@ -33,7 +33,6 @@ public class BanConnector implements BanAdapter {
         } catch (SQLException exception) {
             exception.printStackTrace();
             sql.reconnect();
-            logger.debug("Reconnected to Database!");
         }
     }
 
@@ -100,9 +99,6 @@ public class BanConnector implements BanAdapter {
 
     @Override
     public boolean isExpired(Guild guild, User user) {
-        if (this.getExpire(guild, user).toLocalDateTime().isBefore(LocalDateTime.now())) {
-            return true;
-        }
-        return false;
+        return this.getExpire(guild, user).toLocalDateTime().isBefore(LocalDateTime.now());
     }
 }

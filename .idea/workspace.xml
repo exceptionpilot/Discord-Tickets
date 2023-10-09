@@ -4,18 +4,71 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef65c842-b490-4575-801a-f2a28598eb69" name="Changes" comment="New Functions /open and updated handels">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/TODO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1133772375368941628/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1133820229697413193/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1134558846539546774/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transcripts/1013213427843485817/1134561107760124086/index.html" afterDir="false" />
+    <list default="true" id="ef65c842-b490-4575-801a-f2a28598eb69" name="Changes" comment="Format">
+      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsonSchemas.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LATEST.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/qodana.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/console/DebugCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/console/ReloadCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/FileLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/ReplaceWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/config/Messages.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/config/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/example.embeds.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/script.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/text.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1141193465917620285/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1141193838518612088/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1141194383421616261/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1141194534609498213/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1141410331130871819/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1141410804210610309/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1141412075374116935/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1141418903898161152/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1141419614379716678/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1141419890910171287/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1141420535482429500/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1141421436829970492/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1141421785766699038/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transcripts/1105624734600802334/1141431108601393192/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/transcripts/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/CommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/ConsoleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/ConsoleManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/TicketBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/TicketBot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/AddCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/ClaimCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/ClaimCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/CloseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/CloseCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/ConfigCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/ConfigCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/OpenCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/OpenCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/RemoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/RemoveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/TicketCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/TicketCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/TopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/TopicCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/console/ExitCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/console/ExitCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/console/SendCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/commands/console/SendCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/database/BanConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/database/BanConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/database/GuildConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/database/GuildConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/database/LoggingConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/database/LoggingConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/database/MySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/database/MySQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/interfaces/ICommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/interfaces/ICommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/listeners/GuildJoinLeaveListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/listeners/GuildJoinLeaveListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/transcript/TranscriptMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/transcript/TranscriptMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/transcript/WebBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/transcript/WebBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/TicketWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/TicketWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/config/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/config/Configuration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/travelgeeks/utils/config/Message.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/.env" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,19 +79,43 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="AnnotationType" />
+        <option value="HTML File" />
         <option value="Class" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="5ea85b21-a275-414b-a848-c3cbbb09b785" />
+        <option name="url" value="https://github.com/DevChewbacca/Java-Ticket-Bot.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/messages.json" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/messages.json" root0="SKIP_HIGHLIGHTING" />
     <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-20.0.1/Contents/Home/lib/src.zip!/java.base/java/lang/System.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2SA3xkLfrbqrRUPAOxt3XeuM1RV" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -47,24 +124,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/sebastian/Documents/Coding/Java/Discord/Bots/TicketBot/src/main/resources&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/sebastian/Documents/Coding/Java/Discord/Bots/TicketBot",
+    "settings.editor.selected.configurable": "settings.json.schema"
   }
-}</component>
+}]]></component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="/private/var/folders/qr/0x8l6wt15hg0hhm39x8mx8hh0000gn/T/qodana_output/qodana.sarif.json" reportGuid="f88200f9-efce-4ca8-b0cb-e50f96988714" reportId="TicketBot/qodana/2023-10-03" />
+    </option>
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/transcripts/1105624734600802334/1133145410261762059" />
       <recent name="$PROJECT_DIR$/transcripts/1105624734600802334" />
       <recent name="$PROJECT_DIR$/transcripts" />
-      <recent name="$PROJECT_DIR$/transcripts/1105624734600802334/1133107476804403230" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
@@ -74,7 +157,7 @@
       <recent name="world.travelgeeks.database" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.TicketBot">
     <configuration name="TicketBot" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="world.travelgeeks.TicketBot" />
       <module name="TicketBot" />
@@ -88,9 +171,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="run:main" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="ticketing" />
+          <option name="containerName" value="TicketBot" />
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.TicketBot" />
+      <item itemvalue="Docker.run:main" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.TicketBot" />
+        <item itemvalue="Docker.run:main" />
       </list>
     </recent_temporary>
   </component>
@@ -167,7 +265,151 @@
       <option name="project" value="LOCAL" />
       <updated>1690571904492</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fix: /add command.">
+      <option name="closed" value="true" />
+      <created>1690825120915</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1690825120915</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fix: TicketWrapper.java -&gt; claim()">
+      <option name="closed" value="true" />
+      <created>1691103324430</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1691103324430</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Release v1.1.0 (ModLog)">
+      <option name="closed" value="true" />
+      <created>1691431163999</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1691431163999</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Release v1.1.0 (ModLog)">
+      <option name="closed" value="true" />
+      <created>1691431184346</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1691431184346</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Deleted TicketCommand.java">
+      <option name="closed" value="true" />
+      <created>1691444191704</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1691444191704</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Bugfix: Auto Ticket Delete on Leave">
+      <option name="closed" value="true" />
+      <created>1691505131831</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1691505131831</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Bugfix: beta-1.1.1 fixxed message cacheing">
+      <option name="closed" value="true" />
+      <created>1691514994120</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1691514994120</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Bugfix: beta-1.1.2 New App Function Open Ticket">
+      <option name="closed" value="true" />
+      <created>1691602630082</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1691602630082</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Missing Update Figlet">
+      <option name="closed" value="true" />
+      <created>1691602797389</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1691602797389</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Pre-Leak 1.2.0">
+      <option name="closed" value="true" />
+      <created>1691704944583</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1691704944583</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Pre-Leak 1.2.0 -&gt; Bugfix">
+      <option name="closed" value="true" />
+      <created>1691706780430</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1691706780430</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Pre-Leak 1.2.0 -&gt; Bugfix user caching">
+      <option name="closed" value="true" />
+      <created>1691879248799</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1691879248799</updated>
+    </task>
+    <task id="LOCAL-00021" summary="new Task/Syntax/Format">
+      <option name="closed" value="true" />
+      <created>1691881994361</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1691881994361</updated>
+    </task>
+    <task id="LOCAL-00022" summary="new Task/Syntax/Format">
+      <option name="closed" value="true" />
+      <created>1691883585041</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1691883585041</updated>
+    </task>
+    <task id="LOCAL-00023" summary="new Task/Syntax/Format">
+      <option name="closed" value="true" />
+      <created>1691884419075</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1691884419075</updated>
+    </task>
+    <task id="LOCAL-00024" summary="new Task/Syntax/Format">
+      <option name="closed" value="true" />
+      <created>1691885819045</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1691885819045</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Format">
+      <option name="closed" value="true" />
+      <created>1691885900175</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1691885900175</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Format">
+      <option name="closed" value="true" />
+      <created>1691887246052</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1691887246052</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -181,7 +423,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="basti/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -200,6 +442,23 @@
     <MESSAGE value="Modified Member caching" />
     <MESSAGE value="Private Message Error Handel" />
     <MESSAGE value="New Functions /open and updated handels" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Functions /open and updated handels" />
+    <MESSAGE value="Fix: /add command." />
+    <MESSAGE value="Fix: TicketWrapper.java -&gt; claim()" />
+    <MESSAGE value="Release v1.1.0 (ModLog)" />
+    <MESSAGE value="Deleted TicketCommand.java" />
+    <MESSAGE value="Bugfix: Auto Ticket Delete on Leave" />
+    <MESSAGE value="Bugfix: beta-1.1.1 fixxed message cacheing" />
+    <MESSAGE value="Bugfix: beta-1.1.2 New App Function Open Ticket" />
+    <MESSAGE value="Missing Update Figlet" />
+    <MESSAGE value="Pre-Leak 1.2.0" />
+    <MESSAGE value="Pre-Leak 1.2.0 -&gt; Bugfix" />
+    <MESSAGE value="Pre-Leak 1.2.0 -&gt; Bugfix user caching" />
+    <MESSAGE value="new Task/Syntax/Format" />
+    <MESSAGE value="Format" />
+    <option name="LAST_COMMIT_MESSAGE" value="Format" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

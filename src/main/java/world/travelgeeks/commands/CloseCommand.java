@@ -6,6 +6,7 @@ import world.travelgeeks.TicketBot;
 import world.travelgeeks.database.manager.TicketManagement;
 import world.travelgeeks.interfaces.ICommand;
 import world.travelgeeks.utils.TicketWrapper;
+import world.travelgeeks.utils.config.Messages;
 
 public class CloseCommand implements ICommand {
 
@@ -13,7 +14,7 @@ public class CloseCommand implements ICommand {
     TicketWrapper ticketWrapper = TicketBot.getInstance().getTicketWrapper();
 
     @Override
-    public void execute(SlashCommandInteractionEvent event, User user) {
+    public void execute(SlashCommandInteractionEvent event, User user, Messages messages) {
 
         if (!event.isFromGuild()) {
             event.reply(":x: This command is only proposed for Guilds!").queue();

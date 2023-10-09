@@ -1,37 +1,253 @@
 {
-  "_commit": "THIS FILE IS CURRENTLY NOT WORKING",
-  "color": "#fff",
-
-  "error": {
+  "fileVersion": 1.0,
+  "buttons": {
+    "open": "Open",
+    "close": "Close",
+    "claim": "Claim"
+  },
+  "syntax": {
     "permission": ":x: You do not have permissions to do this.",
     "private": ":x: This command is only proposed for Guilds!",
     "category": ":x: Your arguments must provide a category!",
     "already-in-ticket": ":x: You are already in a ticket: %channel%",
     "not-in-ticket": ":x: You must be in a ticket to execute this command."
   },
-
-  "open": {
-    "create": {
-      "description": "",
-      "footer": "",
-      "icon": ""
-    },
-    "button-reply": {
-      "description": "",
-      "footer": "",
-      "icon": ""
-    },
+  "ticket": {
+    "panel": [
+      {
+        "author": "",
+        "title": "",
+        "description": "Click on the button below this message to open a new ticket. \n> Before you open a ticket, please check our FAQ.",
+        "footer": "",
+        "color": "#ADD2C2",
+        "thumbnail": "",
+        "image": "",
+        "fields": []
+      }
+    ],
     "welcome": {
-      "description": "",
-      "footer": "",
-      "icon": ""
+      "text": "G'day %member%!",
+      "embeds": [
+        {
+          "author": "",
+          "title": "",
+          "description": "Support will be with you shortly. Click the button underneath this message to close the ticket.",
+          "footer": "",
+          "color": "#ADD2C2",
+          "thumbnail": "",
+          "image": "",
+          "fields": []
+        }
+      ]
+    },
+    "logging": {
+      "open": {
+        "embeds": [
+          {
+            "author": "",
+            "title": "",
+            "description": "%member% opened a new ticket: %channel%",
+            "footer": "",
+            "color": "#A7D3A6",
+            "thumbnail": "",
+            "image": "",
+            "fields": [
+              {
+                "key": "ID:",
+                "value": "%id%",
+                "inline": true
+              }
+            ]
+          }
+        ]
+      },
+      "progress": {
+        "text": "%roleAsMention%",
+        "embeds": [
+          {
+            "author": "",
+            "title": "",
+            "description": "%member% is progressing this ticket.",
+            "footer": "",
+            "color": "#F7EF81",
+            "thumbnail": "",
+            "image": "",
+            "fields": [
+              {
+                "key": "ID:",
+                "value": "%id%",
+                "inline": true
+              },
+              {
+                "key": "Claim:",
+                "value": "%member%",
+                "inline": true
+              }
+            ]
+          }
+        ]
+      },
+      "close": {
+        "embeds": [
+          {
+            "author": "",
+            "title": "",
+            "description": "This ticket has already been **closed**.",
+            "footer": "",
+            "color": "#D48585",
+            "thumbnail": "",
+            "image": "",
+            "fields": [
+              {
+                "key": "ID:",
+                "value": "%id%",
+                "inline": true
+              },
+              {
+                "key": "Claim:",
+                "value": "%member%",
+                "inline": true
+              }
+            ]
+          }
+        ]
+      }
     }
   },
-  "close": {
-    "reply": {
-      "description": "",
-      "footer": "",
-      "icon": ""
+  "commands": {
+    "add": {
+      "embeds": [
+        {
+          "author": "",
+          "title": "",
+          "description": "The user %member% was added to the ticket.",
+          "footer": "",
+          "color": "#ADD2C2",
+          "thumbnail": "",
+          "image": "",
+          "fields": []
+        }
+      ]
+    },
+    "remove": {
+      "embeds": [
+        {
+          "author": "",
+          "title": "",
+          "description": "This ticket has already been **closed**.",
+          "footer": "",
+          "color": "#D48585",
+          "thumbnail": "",
+          "image": "",
+          "fields": []
+        }
+      ]
+    },
+    "claim": {
+      "embeds": [
+        {
+          "author": "",
+          "title": "",
+          "description": "This ticket has already been **closed**.",
+          "footer": "",
+          "color": "         ",
+          "thumbnail": "",
+          "image": "",
+          "fields": []
+        }
+      ]
+    },
+    "close": {
+      "embeds": [
+        {
+          "author": "",
+          "title": "",
+          "description": "This ticket has already been **closed**.",
+          "footer": "",
+          "color": "#ADD2C2",
+          "thumbnail": "",
+          "image": "",
+          "fields": []
+        }
+      ]
+    },
+    "config": {
+      "embeds": [
+        {
+          "author": "",
+          "title": "",
+          "description": "Your settings have been adjusted.",
+          "footer": "",
+          "color": "#A7D3A6",
+          "thumbnail": "",
+          "image": "",
+          "fields": []
+        }
+      ]
+    },
+    "open": {
+      "embeds": [
+        {
+          "author": "",
+          "title": "",
+          "description": "A new ticket was opened for %member%",
+          "footer": "",
+          "color": "#A7D3A6",
+          "thumbnail": "",
+          "image": "",
+          "fields": []
+        }
+      ]
+    },
+    "topic": {
+      "embeds": [
+        {
+          "author": "",
+          "title": "",
+          "description": "Topic has been set to: %topic%",
+          "footer": "",
+          "color": "#D48585",
+          "thumbnail": "",
+          "image": "",
+          "fields": []
+        }
+      ]
+    },
+    "ticket": {
+      "ban": {
+        "syntax": {
+          "already": ":x: The User %member% already has a ban."
+        },
+        "embeds": [
+          {
+            "author": "",
+            "title": "",
+            "description": "You've banned %member%!",
+            "footer": "",
+            "color": "#D48585",
+            "thumbnail": "",
+            "image": "",
+            "fields": []
+          }
+        ]
+      },
+      "unban": {
+        "syntax": {
+          "not": ":x: The User %member% isn't banned."
+        },
+        "embeds": [
+          {
+            "author": "",
+            "title": "",
+            "description": "You've unbanned %member%!",
+            "footer": "",
+            "color": "#D48585",
+            "thumbnail": "",
+            "image": "",
+            "fields": []
+          }
+        ]
+      }
     }
   }
 }

@@ -11,6 +11,7 @@ import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 import world.travelgeeks.commands.*;
 import world.travelgeeks.interfaces.ICommand;
+import world.travelgeeks.utils.config.Messages;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -59,8 +60,8 @@ public class CommandManager extends ListenerAdapter {
                                 .addOptions(new OptionData(OptionType.USER, "user", "Select a user", true))
                 ));
 
-        // Application Commands
-        commands.addCommands(Commands.context(Command.Type.USER, "Open Ticket")).queue();
+        // Context Commands
+        commands.addCommands(Commands.context(Command.Type.USER, "Open Ticket"));
 
         commands.queue();
     }
@@ -73,7 +74,8 @@ public class CommandManager extends ListenerAdapter {
         ICommand command;
 
         if ((command = commandsMap.get(commandName)) != null) {
-            command.execute(event, event.getUser());
+            command.execute(event, event.getUser(), TicketBot.getInstance().getMessage());
         }
+
     }
 }

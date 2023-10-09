@@ -1,9 +1,17 @@
 package world.travelgeeks.transcript;
 
+import com.jcraft.jsch.Channel;
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.Session;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import world.travelgeeks.TicketBot;
+import world.travelgeeks.utils.config.Configuration;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -18,10 +26,13 @@ public class WebBuilder {
     private final String title;
     private final Guild guild;
     private final TextChannel channel;
-    private final List<TranscriptMessage> transcriptMessages = new ArrayList<>();
+    private List<TranscriptMessage> transcriptMessages;
+    Configuration configuration = TicketBot.getInstance().getConfiguration();
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public WebBuilder(String title, Guild guild, TextChannel channel) {
-        this.transcriptMessages.clear();
+        logger.info("Building new Transcript for: " + guild.getName());
+        this.transcriptMessages = new ArrayList<>();
         this.title = title;
         this.guild = guild;
         this.channel = channel;
@@ -63,13 +74,14 @@ public class WebBuilder {
                     .append("</div>")
                     .append("<div class=\"content\">" + message.getMessage() + "</div>\n")
                     .append("</div>");
+            logger.debug(message.getAuthor() + " : " + message.getMessage());
             for (MessageEmbed embed : message.getEmbeds()) {
                 builder.append("<div class=\"embed\">\n" +
                         "            <div class=\"embed-description\">" + embed.getDescription() + "</div>\n" +
                         "        </div>");
             }
-
         }
+        logger.info("Message implementing done.");
         builder.append("<script>\n" +
                 "    const darkModeToggle = document.getElementById('dark-mode-toggle');\n" +
                 "    const body = document.body;\n" +
@@ -87,14 +99,39 @@ public class WebBuilder {
         try {
             File folder = new File("transcripts/" + this.guild.getIdLong() + "/" + this.channel.getIdLong() + "/index.html");
             if (!folder.exists()) folder.getParentFile().mkdirs();
+            logger.info("Directory: " + folder.getPath());
             bufferedWriter = new BufferedWriter(new FileWriter(folder));
             bufferedWriter.write(builder.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
+
+            if (configuration.isSFTPActive()) {
+
+                JSch jSch = new JSch();
+                Session session = jSch.getSession(configuration.getSftpUser(), configuration.getSftpHost(), (int) configuration.getSftpPort());
+                session.setConfig("StrictHostKeyChecking", "no");
+                session.setPassword(configuration.getPassword());
+                session.connect();
+
+                // TODO: We will change this to a selfmade rest api
+
+                logger.debug("Make sure to disable sftp client worker");
+                Channel jChannel = session.openChannel("sftp");
+                ChannelSftp channelSftp = (ChannelSftp) jChannel;
+                channelSftp.connect();
+
+                channelSftp.put(folder.getAbsolutePath(), configuration.getSftpPath());
+
+                channelSftp.disconnect();
+                session.disconnect();
+
+            }
+
+        } catch (Exception exception) {
+            exception.printStackTrace();
         } finally {
             try {
                 assert bufferedWriter != null;
                 bufferedWriter.close();
+                logger.info("Successfully transcript build.");
             } catch (IOException | NullPointerException e) {
                 e.printStackTrace();
             }

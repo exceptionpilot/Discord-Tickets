@@ -1,8 +1,6 @@
 package world.travelgeeks.listeners;
 
 import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.guild.GuildJoinEvent;
 import net.dv8tion.jda.api.events.guild.GuildLeaveEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberRemoveEvent;
@@ -14,6 +12,7 @@ import world.travelgeeks.TicketBot;
 import world.travelgeeks.database.manager.GuildManagement;
 import world.travelgeeks.database.manager.TicketManagement;
 import world.travelgeeks.utils.TicketWrapper;
+import world.travelgeeks.utils.config.Messages;
 
 public class GuildJoinLeaveListener extends ListenerAdapter {
 

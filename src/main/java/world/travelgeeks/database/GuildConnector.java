@@ -32,7 +32,6 @@ public class GuildConnector implements GuildAdapter {
         } catch (SQLException exception) {
             exception.printStackTrace();
             sql.reconnect();
-            logger.debug("AUTO-FIX -> Reconnected to Database!");
         }
     }
 
@@ -128,7 +127,6 @@ public class GuildConnector implements GuildAdapter {
         } catch (SQLException exception) {
             exception.printStackTrace();
             sql.reconnect();
-            logger.debug("Reconnected to Database!");
         }
     }
 
@@ -155,7 +153,6 @@ public class GuildConnector implements GuildAdapter {
             statement.close();
         } catch (SQLException exception) {
             exception.printStackTrace();
-            logger.debug("AUTO-FIX -> Reconnected to Database!");
         }
     }
 
@@ -167,7 +164,6 @@ public class GuildConnector implements GuildAdapter {
             statement.close();
         } catch (SQLException exception) {
             exception.printStackTrace();
-            logger.debug("AUTO-FIX -> Reconnected to Database!");
         }
     }
 
@@ -179,7 +175,6 @@ public class GuildConnector implements GuildAdapter {
             statement.close();
         } catch (SQLException exception) {
             exception.printStackTrace();
-            logger.debug("AUTO-FIX -> Reconnected to Database!");
         }
     }
 
@@ -191,7 +186,6 @@ public class GuildConnector implements GuildAdapter {
             statement.close();
         } catch (SQLException exception) {
             exception.printStackTrace();
-            logger.debug("AUTO-FIX -> Reconnected to Database!");
         }
     }
 

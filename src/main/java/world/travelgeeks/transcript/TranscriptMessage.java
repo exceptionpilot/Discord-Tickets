@@ -4,7 +4,7 @@ import net.dv8tion.jda.api.entities.MessageEmbed;
 
 import java.util.List;
 
-public class TranscriptMessage {
+public class  TranscriptMessage {
 
     private final String author;
     private final String iconUrl;

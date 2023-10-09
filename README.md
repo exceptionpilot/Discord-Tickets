@@ -34,17 +34,17 @@ Introducing our meticulously crafted Ticket bot for Discord, powered by the JDA 
 
 ## Transcript Guide:
 Before installing apache2 for the web, update and upgrade your packages.
-```ssh
+```shell
 $ sudo apt update && sudo apt upgrade -y
 ```
 Install apache2 via SSH.
-```ssh
+```shell
 $ sudo apt install apache2
 ```
 > This is only the basic setup, for more security check out the [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04) Wiki. 
 
 Open apache2 configuration file in the nano Editor.
-```ssh
+```shell
 ## Input
 $ sudo nano /etc/apache2/apache2.conf
 
@@ -56,7 +56,7 @@ $ sudo nano /etc/apache2/apache2.conf
 </Directory>
 ```
 Change output to:
-```ssh
+```shell
 <Directory /path/to/transcript/>
         Options Indexes FollowSymLinks
         AllowOverride None
@@ -65,7 +65,7 @@ Change output to:
 </Directory>
 ```
 Open the default virtual host configuration file from the path.
-```ssh
+```shell
 ## Input
 $ sudo nano /etc/apache2/sites-available/000-default.conf
 
@@ -73,11 +73,11 @@ $ sudo nano /etc/apache2/sites-available/000-default.conf
 DocumentRoot /var/www/html
 ```
 Change output to:
-```ssh
+```shell
 DocumentRoot /path/to/transcript/
 ```
 Finally, restart apache2.
-```ssh
+```shell
 $ sudo service apache2 restart
 ```
 Well done😄 Enjoy!
@@ -117,10 +117,13 @@ Well done😄 Enjoy!
 </details>
 
 ## Tasks:
-* [ ] Including messages.json for custom messages setup.
+> Marked as done (tasks) shows you all updates of the latest version.
+* [x] Including messages.json for custom messages setup.
+* [x] New configuration file
+* [ ] Send Transcript via SFTP connection | Already in process
 * [ ] Multi-Language for each Guild. (de-DE.json, en-GB.json, etc)
 * [ ] Including a Plugin-System for Developers
-* [ ] Send Transcript via SFTP connection
+
 
 ## Dependencies:
   * JDA (Java Discord API)
@@ -135,8 +138,8 @@ Well done😄 Enjoy!
   * java-dotenv
     * Version: `2.3.2`
     * [GitHub](https://github.com/fangyidong/json-simple) 
-  * MySQL Connector Java
-    * Version: `8.0.33`
+  * MySQL Connector J
+    * Version: `8.1.0`
     * [GitHub](https://github.com/mysql/mysql-connector-j)
 
 ## Partners:

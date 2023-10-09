@@ -7,16 +7,18 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import world.travelgeeks.TicketBot;
 import world.travelgeeks.database.manager.TicketManagement;
 import world.travelgeeks.interfaces.ICommand;
+import world.travelgeeks.utils.config.Messages;
 
 import java.awt.*;
 
 public class TopicCommand implements ICommand {
+
     TicketManagement ticketManagement = TicketBot.getInstance().getTicketManagement();
 
     @Override
-    public void execute(SlashCommandInteractionEvent event, User user) {
+    public void execute(SlashCommandInteractionEvent event, User user, Messages messages) {
         if (!event.isFromGuild()) {
-            event.reply(":x: This command is only proposed for Guilds!").setEphemeral(true).queue();
+            event.reply(messages.getMessage("syntax.guild").getAsString()).setEphemeral(true).queue();
             return;
         }
 

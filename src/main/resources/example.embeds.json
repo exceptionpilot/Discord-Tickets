@@ -1,0 +1,26 @@
+{
+  "fileVersion": 1.0,
+  "embeds": [
+    {
+      "author": "Author",
+      "title": "Title",
+      "description": "Description",
+      "footer": "Footer",
+      "color": "Color(#HexCode)",
+      "thumbnail": "ThumbnailUrl",
+      "image": "ImageUrl",
+      "fields": [
+        {
+          "key": "Title",
+          "value": "Description",
+          "inline": true
+        },
+        {
+          "key": "Title",
+          "value": "Description",
+          "inline": true
+        }
+      ]
+    }
+  ]
+}

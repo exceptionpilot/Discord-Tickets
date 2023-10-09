@@ -14,6 +14,7 @@ import world.travelgeeks.TicketBot;
 import world.travelgeeks.database.manager.GuildManagement;
 import world.travelgeeks.interfaces.ICommand;
 import world.travelgeeks.utils.config.Configuration;
+import world.travelgeeks.utils.config.Messages;
 
 import java.awt.*;
 
@@ -39,7 +40,7 @@ public class ConfigCommand extends ListenerAdapter implements ICommand {
     }
 
     @Override
-    public void execute(SlashCommandInteractionEvent event, User user) {
+    public void execute(SlashCommandInteractionEvent event, User user, Messages messages) {
 
         if (!event.isFromGuild()) {
             event.reply(":x: This command is only proposed for Guilds!").queue();
