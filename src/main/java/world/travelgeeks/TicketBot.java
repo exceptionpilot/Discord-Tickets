@@ -49,6 +49,7 @@ public class TicketBot {
     private final Configuration configuration;
     private final Messages messages;
     private final MySQL sql;
+    private final SQLite sqLite;
     private final TicketConnector ticketConnector;
     private final TicketManagement ticketManagement;
     private final GuildConnector guildConnector;
@@ -93,23 +94,25 @@ public class TicketBot {
     public TicketBot() throws LoginException, IllegalArgumentException {
         INSTANCE = this;
 
+        Dotenv env = Dotenv.load();
         this.configuration = new Configuration();
         this.messages = new Messages();
 
         this.sql = new MySQL();
-        this.ticketConnector = new TicketConnector((Connection) this.sql.getConnection());
+        this.sqLite = new SQLite();
+
+        this.ticketConnector = new TicketConnector(this.configuration.useExternalDatabase() ? (Connection) this.sql.getConnection() : (Connection) this.sqLite.getConnection());
         this.ticketManagement = new TicketManagement((TicketAdapter) this.ticketConnector);
-        this.guildConnector = new GuildConnector((Connection) this.sql.getConnection());
+        this.guildConnector = new GuildConnector(this.configuration.useExternalDatabase() ? (Connection) this.sql.getConnection() : (Connection) this.sqLite.getConnection());
         this.guildManagement = new GuildManagement((GuildAdapter) this.guildConnector);
-        this.loggingConnector = new LoggingConnector((Connection) this.sql.getConnection());
+        this.loggingConnector = new LoggingConnector(this.configuration.useExternalDatabase() ? (Connection) this.sql.getConnection() : (Connection) this.sqLite.getConnection());
         this.loggingManagement = new LoggingManagement((LoggingAdapter) this.loggingConnector);
-        this.banConnector = new BanConnector((Connection) this.sql.getConnection());
+        this.banConnector = new BanConnector(this.configuration.useExternalDatabase() ? (Connection) this.sql.getConnection() : (Connection) this.sqLite.getConnection());
         this.banManagement = new BanManagement((BanAdapter) this.banConnector);
 
         this.ticketWrapper = new TicketWrapper();
 
         // Building JDA Bot Client
-        Dotenv env = Dotenv.load();
         JDABuilder builder = JDABuilder.createDefault(env.get(this.configuration.isDevMode() ? "DEV_TOKEN" : "TOKEN"));
 
         builder.setActivity(Activity.watching(this.configuration.isDevMode() ? "DevMode" : "Support"));
@@ -119,7 +122,7 @@ public class TicketBot {
         builder.enableIntents(GatewayIntent.GUILD_MESSAGES);
         builder.setAutoReconnect(true);
         builder.disableCache(CacheFlag.ACTIVITY);
-        builder.setMemberCachePolicy(MemberCachePolicy.ALL); // Hotfix
+        builder.setMemberCachePolicy(MemberCachePolicy.ALL); // TODO: add caching management
         builder.setMaxReconnectDelay(32);
         builder.addEventListeners(new ConfigCommand());
         builder.addEventListeners(new ButtonInteractionListener());

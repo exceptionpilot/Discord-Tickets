@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 public class BanConnector implements BanAdapter {
 
     public final Connection connection;
-    MySQL sql = TicketBot.getInstance().getSQL();
     BanManagement banManagement = TicketBot.getInstance().getBanManagement();
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -32,7 +31,6 @@ public class BanConnector implements BanAdapter {
             statement.close();
         } catch (SQLException exception) {
             exception.printStackTrace();
-            sql.reconnect();
         }
     }
 
@@ -57,7 +55,6 @@ public class BanConnector implements BanAdapter {
             statement.close();
         } catch (SQLException exception) {
             exception.printStackTrace();
-            sql.reconnect();
             logger.debug("Reconnected to Database!");
         }
     }
@@ -83,7 +80,7 @@ public class BanConnector implements BanAdapter {
     public Timestamp getExpire(Guild guild, User user) {
         Timestamp expiring = null;
         try {
-            PreparedStatement statement = sql.getConnection().prepareStatement("SELECT * FROM Ban WHERE guildID='" + guild.getIdLong() + "' AND userID='" + user.getIdLong() + "'");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM Ban WHERE guildID='" + guild.getIdLong() + "' AND userID='" + user.getIdLong() + "'");
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 expiring = resultSet.getTimestamp("expiring");

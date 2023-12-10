@@ -4,7 +4,6 @@ import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.entities.channel.Channel;
 
-import javax.sound.midi.SysexMessage;
 import java.lang.reflect.Member;
 
 public class ReplaceWrapper {
@@ -27,5 +26,37 @@ public class ReplaceWrapper {
         this.permission = permission;
         this.topic = topic;
         this.error = error;
+    }
+
+    public Channel getChannel() {
+        return channel;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public Member getTargetMember() {
+        return targetMember;
+    }
+
+    public Permission getPermission() {
+        return permission;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public User getTargetUser() {
+        return targetUser;
     }
 }

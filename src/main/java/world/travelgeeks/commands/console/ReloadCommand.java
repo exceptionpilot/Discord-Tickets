@@ -17,8 +17,7 @@ public class ReloadCommand implements IConsole {
         logger.info("Executing reload...please wait");
         Messages messages = TicketBot.getInstance().getMessage();
         messages.unloadFile();
-        MySQL mySQL = TicketBot.getInstance().getSQL();
-        mySQL.reconnect();
+        logger.info("We did it! :)");
 
     }
 }

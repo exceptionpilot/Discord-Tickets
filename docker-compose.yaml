@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ticket
+    networks:
+      - ticket
+    expose:
+      - 3308
+networks:
+  ticket:
+    driver: bridge
+    name: ticket

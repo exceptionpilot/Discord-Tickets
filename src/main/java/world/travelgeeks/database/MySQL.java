@@ -17,9 +17,9 @@ public class MySQL {
 
     public MySQL() {
 
-        if (configuration.getHost() !=null) {
+        if (configuration.useExternalDatabase()) {
             connect();
-        } else logger.info("Host is null");
+        } else logger.info("MySQL disabled");
     }
 
     public void connect() {

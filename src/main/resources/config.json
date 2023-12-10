@@ -1,24 +1,31 @@
 {
-  "_commit": "DevMode enables a bunch of backend logging's and will login your bot on the .env key DEV_TOKEN",
-  "fileVersion": 1.0,
-  "devMode": false,
   "mysql": {
-    "host": "localhost",
+    "_commit": "if mysql is disabled, it will use a sqlite",
+    "use": false,
+    "host": "0.0.0.0",
     "table": "ticket",
     "user": "root",
     "port": 3306,
-    "password": "pa$$word"
+    "password": "p@$$w0rd"
   },
   "transcript": {
-    "website": "https://tickets.domain.com/ <-- We would recommend to use a subdomain for this Webstage."
+    "uri": "https://ticket.io/"
   },
-  "_commit": "This is currently deprecated!",
   "sftp": {
-    "status": false,
-    "path": "/var/www",
+    "use": false,
+    "path": "/var/www/html/",
     "host": "0.0.0.0",
     "port": 22,
     "user": "root",
-    "password": "pa$$word"
+    "password": "p@$$w0rd"
+  },
+  "dev": {
+    "debug": false,
+    "github": {
+      "_commit": "don't change this properties, it is used for driver updates",
+      "repository": "https://github.com/DevChewbacca/Java-Ticket-Bot",
+      "author": "DevChewbacca",
+      "auth0": "SHA_DAJPSDJAW"
+    }
   }
 }

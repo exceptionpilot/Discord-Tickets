@@ -16,7 +16,6 @@ import java.sql.*;
 public class LoggingConnector implements LoggingAdapter {
 
     Connection connection;
-    MySQL sql = TicketBot.getInstance().getSQL();
     GuildManagement guildManagement = TicketBot.getInstance().getGuildManagement();
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -33,7 +32,6 @@ public class LoggingConnector implements LoggingAdapter {
             statement.close();
         } catch (SQLException exception) {
             exception.printStackTrace();
-            sql.reconnect();
         }
     }
 
@@ -58,7 +56,6 @@ public class LoggingConnector implements LoggingAdapter {
             statement.close();
         } catch (SQLException exception) {
             exception.printStackTrace();
-            sql.reconnect();
         }
     }
 

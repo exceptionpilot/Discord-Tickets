@@ -48,7 +48,6 @@ public class WebBuilder {
                         message.getAuthor().isBot()));
         return this;
     }
-
     public void build() {
         StringBuilder builder = new StringBuilder();
         builder.append("<!DOCTYPE html>\n" +
@@ -62,7 +61,6 @@ public class WebBuilder {
                 "<body>\n" +
                 "    <button id=\"dark-mode-toggle\">DarkMode/WhiteMode</button>\n" +
                 "    <div class=\"transcript-container\">");
-
         Collections.reverse(transcriptMessages);
         for (TranscriptMessage message : this.transcriptMessages) {
 
@@ -108,10 +106,9 @@ public class WebBuilder {
                 JSch jSch = new JSch();
                 Session session = jSch.getSession(configuration.getSftpUser(), configuration.getSftpHost(), (int) configuration.getSftpPort());
                 session.setConfig("StrictHostKeyChecking", "no");
+                session.setConfig(System.getProperties());
                 session.setPassword(configuration.getPassword());
                 session.connect();
-
-                // TODO: We will change this to a selfmade rest api
 
                 logger.debug("Make sure to disable sftp client worker");
                 Channel jChannel = session.openChannel("sftp");
@@ -137,5 +134,4 @@ public class WebBuilder {
             }
         }
     }
-
 }

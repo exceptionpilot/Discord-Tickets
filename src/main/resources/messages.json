@@ -7,16 +7,17 @@
   },
   "syntax": {
     "permission": ":x: You do not have permissions to do this.",
+    "missingRole": ":x: Missing Role: MISSING_ROLE",
     "private": ":x: This command is only proposed for Guilds!",
     "category": ":x: Your arguments must provide a category!",
-    "already-in-ticket": ":x: You are already in a ticket: %channel%",
-    "not-in-ticket": ":x: You must be in a ticket to execute this command."
+    "alreadyTicket": ":x: You are already in a ticket: {channel}",
+    "noTicket": ":x: You must be in a ticket to execute this command."
   },
   "ticket": {
     "panel": [
       {
-        "author": "",
-        "title": "",
+        "author": "{username}",
+        "title": "Draw a ticket!",
         "description": "Click on the button below this message to open a new ticket. \n> Before you open a ticket, please check our FAQ.",
         "footer": "",
         "color": "#ADD2C2",
@@ -116,18 +117,16 @@
   },
   "commands": {
     "add": {
-      "embeds": [
-        {
+      "embed": {
           "author": "",
           "title": "",
-          "description": "The user %member% was added to the ticket.",
+          "description": "The user {usernameMention} was added to the ticket.",
           "footer": "",
           "color": "#ADD2C2",
           "thumbnail": "",
           "image": "",
           "fields": []
         }
-      ]
     },
     "remove": {
       "embeds": [

@@ -31,6 +31,7 @@ public class GuildJoinLeaveListener extends ListenerAdapter {
     public void onReady(ReadyEvent event) {
 
         for (Guild guild : event.getJDA().getGuilds()) {
+            this.logger.debug("loading probs of " + guild);
             if (!management.exists(guild))
                 management.create(guild);
         }
@@ -40,8 +41,8 @@ public class GuildJoinLeaveListener extends ListenerAdapter {
 
     @Override
     public void onGuildLeave(GuildLeaveEvent event) {
+        logger.info("incoming delete request " + event.getGuild().getName());
         management.delete(event.getGuild());
-        logger.info("Left Community: " + event.getGuild().getName());
     }
 
     @Override

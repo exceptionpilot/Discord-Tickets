@@ -32,12 +32,12 @@ public class AddCommand implements ICommand {
 
         Member member = event.getMember();
         if (!member.getRoles().contains(guildManagement.getRole(event.getGuild()))) {
-            event.deferReply(true).setContent(":x: Missing Role: MISSING_ROLE").queue();
+            event.deferReply(true).setContent(messages.getMessage("syntax.missingRole").getAsString()).queue();
             return;
         }
 
         if (!ticketManagement.isTicket(event.getGuild(), event.getChannel().asTextChannel())) {
-            event.reply(":x: You must be in a ticket to execute this command.").setEphemeral(true).queue();
+            event.reply(messages.getMessage("syntax.noTicket").getAsString()).setEphemeral(true).queue();
             return;
         }
 
@@ -45,7 +45,8 @@ public class AddCommand implements ICommand {
         ticketWrapper.add(event.getChannel().asTextChannel(), member);
         ticketWrapper.add(event.getChannel().asTextChannel(), target);
         EmbedBuilder builder = new EmbedBuilder();
-        builder.setDescription("The user " + target.getAsMention() + " was added to the ticket.");
+        builder.setDescription(messages.getMessage("commands.add.embed.description").getAsString()
+                .replace("{usernameMention}", target.getAsMention()));
         builder.setColor(Color.decode("#D0F7F4"));
         event.replyEmbeds(builder.build()).queue();
 
