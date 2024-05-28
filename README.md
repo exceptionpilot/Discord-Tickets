@@ -3,7 +3,7 @@
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/DevChewbacca/Java-Ticket-Bot)
 <img align="right" src="https://cdn.discordapp.com/avatars/1024758270327533628/24e01d61e543269a5f5b754375bfade7.png?size=2048" height="200" width="200">
 
-## Java-Ticket-Bot
+## Discord Tickets
 Introducing our meticulously crafted Ticket bot for Discord, powered by the JDA (Java Discord API). This delightful bot offers various features, including web-based access to previous transcripts. Enhance your server experience with seamless ticket management and effortless interaction. Enjoy the convenience and versatility it brings to your Discord community!
 
 ## Summary:
