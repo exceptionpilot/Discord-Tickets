@@ -13,6 +13,7 @@ import java.awt.*;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Objects;
 
 public class TicketCommand implements ICommand {
 
@@ -34,7 +35,7 @@ public class TicketCommand implements ICommand {
         // This command is not finished...
 
         User targetUser = event.getOption("user").getAsUser();
-        switch (event.getSubcommandName()) {
+        switch (Objects.requireNonNull(event.getSubcommandName())) {
 
             case "ban":
                 if (!banManagement.hasBan(event.getGuild(), targetUser)) {

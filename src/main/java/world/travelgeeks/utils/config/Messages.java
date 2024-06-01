@@ -69,9 +69,7 @@ public class Messages {
                     return jsonElement;
                 else
                     object = jsonElement.getAsJsonObject();
-            } else {
-                return null;
-            }
+            } else return null;
         }
         return object;
     }

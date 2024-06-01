@@ -7,8 +7,6 @@ import world.travelgeeks.database.MySQL;
 import world.travelgeeks.interfaces.IConsole;
 
 public class ExitCommand implements IConsole {
-
-    MySQL sql = TicketBot.getInstance().getSQL();
     TicketBot ticketBot = TicketBot.getInstance();
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -16,14 +14,12 @@ public class ExitCommand implements IConsole {
     public void execute(String[] args) {
         logger.info("Shutdown");
         if (args.length == 0) {
-            sql.disconnect();
             ticketBot.getJDA().shutdown();
             ticketBot.getJDA().shutdownNow();
             System.exit(Integer.valueOf(1));
             return;
         }
 
-        sql.disconnect();
         ticketBot.getJDA().shutdown();
         ticketBot.getJDA().shutdownNow();
         System.exit(Integer.valueOf(args[1]));

@@ -15,8 +15,6 @@ public class GuildConnector implements GuildAdapter {
     Logger logger = LoggerFactory.getLogger(this.getClass());
     Connection connection;
 
-    MySQL sql = TicketBot.getInstance().getSQL();
-
     public GuildConnector(Connection connection) {
         this.connection = connection;
         try {
@@ -31,7 +29,6 @@ public class GuildConnector implements GuildAdapter {
             statement.close();
         } catch (SQLException exception) {
             exception.printStackTrace();
-            sql.reconnect();
         }
     }
 
@@ -120,18 +117,19 @@ public class GuildConnector implements GuildAdapter {
 
     @Override
     public void delete(Guild guild) {
+        this.logger.debug("incoming delete request: " + guild.toString());
         try {
             Statement statement = this.connection.createStatement();
             statement.executeUpdate("DELETE FROM Tickets WHERE guildID='" + guild.getIdLong() + "'");
             statement.close();
         } catch (SQLException exception) {
             exception.printStackTrace();
-            sql.reconnect();
         }
     }
 
     @Override
     public boolean exists(Guild guild) {
+        this.logger.debug("incoming get request: " + guild.toString());
         try {
             PreparedStatement statement = this.connection.prepareStatement("SELECT * FROM Guilds WHERE guildID='" + guild.getIdLong() + "'");
             ResultSet resultSet = statement.executeQuery();

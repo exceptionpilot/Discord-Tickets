@@ -15,12 +15,10 @@ public class TicketConnector implements TicketAdapter {
     Logger logger = LoggerFactory.getLogger(TicketConnector.class);
     Connection connection;
 
-    MySQL sql = TicketBot.getInstance().getSQL();
-
     public TicketConnector(Connection connection) {
         this.connection = connection;
         try {
-            Statement statement = sql.getConnection().createStatement();
+            Statement statement = this.connection.createStatement();
             statement.executeUpdate(
                     "CREATE TABLE IF NOT EXISTS Tickets(" +
                     "guildID BIGINT(22), " +
@@ -29,8 +27,6 @@ public class TicketConnector implements TicketAdapter {
             statement.close();
         } catch (SQLException exception) {
             exception.printStackTrace();
-            sql.disconnect();
-            sql.connect();
             logger.debug("Reconnected to Database!");
         }
     }
@@ -57,7 +53,6 @@ public class TicketConnector implements TicketAdapter {
             statement.close();
         } catch (SQLException exception) {
             exception.printStackTrace();
-            sql.reconnect();
             logger.debug("AUTO-FIX -> Reconnected to Database!");
         }
     }
